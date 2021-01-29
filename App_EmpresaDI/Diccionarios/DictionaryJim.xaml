@@ -83,7 +83,7 @@
 
     <Style TargetType="TextBox" x:Key="EntradaDatos">
         <Setter Property="Foreground" Value="Gray"/>
-        <Setter Property="Margin" Value="10,5"/>
+
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="FontFamily" Value="Century Gothic"/>

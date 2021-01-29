@@ -26,9 +26,10 @@
         <ListView Grid.Column="1" Grid.Row="1">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
-                    <GridViewColumn/>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Nombre" Width="80"/>
+                    <GridViewColumn Header="Direccion" Width="140"/>
+                    <GridViewColumn Header="Telefono" Width="80"/>
+                    <GridViewColumn Header="Ciudad" Width="60"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -58,7 +59,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Image  Grid.Column="0" Source="/Imagenes/user.ico" Margin="5" />
-                <TextBox x:Name="txtNombre" Grid.Column="1"   />
+                <TextBox x:Name="txtNombre" Grid.Column="1" Style="{StaticResource EntradaDatos}"  />
             </Grid>
             <Grid x:Name="grid_telefono"  Margin="5" Grid.Row="1" Grid.Column="1">
                 <Grid.Effect>
@@ -70,7 +71,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Image  Grid.Column="0" Source="/Imagenes/phone.ico" Margin="5" />
-                <TextBox x:Name="txtTelefono" Grid.Column="1"   />
+                <TextBox x:Name="txtTelefono" Grid.Column="1" Style="{StaticResource EntradaDatos}"   />
             </Grid>
             <Grid x:Name="grid_Direccion"  Margin="5" Grid.Row="2" Grid.Column="1">
                 <Grid.Effect>
@@ -82,7 +83,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Image Grid.Column="0" Source="/Imagenes/mail.ico" Margin="5" />
-                <TextBox x:Name="txtDireccion" Grid.Column="1"   />
+                <TextBox x:Name="txtDireccion" Grid.Column="1"  Style="{StaticResource EntradaDatos}"  />
             </Grid>
             <Grid x:Name="grid_Ciudad"  Margin="5" Grid.Row="3" Grid.Column="1">
                 <Grid.Effect>
@@ -94,7 +95,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Image Grid.Column="0" Source="/Imagenes/home.ico" Margin="5" />
-                <TextBox x:Name="txtCiudad" Grid.Column="1"   />
+                <TextBox x:Name="txtCiudad" Grid.Column="1" Style="{StaticResource EntradaDatos}"   />
             </Grid>
            
 
