@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_EmpresaDI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="1024">
+    <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF2C99E4" Offset="0.56"/>
+                <GradientStop Color="White" Offset="0"/>
+                <GradientStop Color="#FF10A410" Offset="0.98"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lbTitulo" Grid.Row="0" Grid.Column="1" Content="App EMPRESA DI ByJIM®2021"
+               Style="{StaticResource St_Titulo}"/>
+
+        <Grid x:Name="grid_Botones" Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton x:Name="btn_Home" Grid.Column="1" Content="HOME" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <ToggleButton x:Name="btn_Clientes" Grid.Column="2" Content="CLIENTES" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <ToggleButton x:Name="btn_Productos" Grid.Column="3" Content="PRODUCTOS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <ToggleButton x:Name="btn_Ventas" Grid.Column="4" Content="VENTAS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+        </Grid>
+
+        <Frame x:Name="fr_Paginas" Grid.Row="2" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+
     </Grid>
 </Window>

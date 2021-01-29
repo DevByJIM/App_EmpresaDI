@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:App_EmpresaDI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Diccionarios/DictionaryJim.xaml"/>
+                <ResourceDictionary Source="Diccionarios/dic_Botones.xaml"/>
+                <ResourceDictionary Source="Diccionarios/dic_Textos.xaml"/>
+                <ResourceDictionary Source="Diccionarios/dic_Propiedades.xaml"/>
+                <ResourceDictionary Source="Diccionarios/dic_DataGrids.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

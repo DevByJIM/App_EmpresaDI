@@ -1,0 +1,77 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:App_Almacen_Expediciones.Diccionarios">
+
+    <!--ESTILO PARA DATAGRID MODELO 1 -->
+    <Style TargetType="DataGrid" x:Key="DGV_001">
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="MinColumnWidth" Value="60"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="AlternatingRowBackground" Value="LightGray"/>
+        <Setter Property="Foreground" Value="#FF000855"/>
+        <Setter Property="BorderBrush" Value="#FF0075C7"/>
+        <Setter Property="RowBackground" Value="White"/>
+        <Setter Property="AlternatingRowBackground" Value="#ABD4D3D3"/>
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource DGV_HeaderCN}"/>
+        <Setter Property="CellStyle" Value="{DynamicResource DGV_CeldaCN}"/>
+        <Setter Property="RowStyle" Value="{DynamicResource DGV_CeldaSeleccionada}"/>
+    </Style>
+
+    <!--ESTILO PARA TITULOS DE COLUMNAS DE UN DATAGRID MODELO 1 CENTRADO, NEGRITA Y AZUL -->
+    <Style TargetType="DataGridColumnHeader" x:Key="DGV_HeaderCN">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0,0,0.5,0.5"/>
+        <Setter Property="Background" Value="#CC7ECAFF"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+    </Style>
+
+    <!--ESTILO PARA TITULOS DE COLUMNAS DE UN DATAGRID MODELO 1 CENTRADO Y AZUL -->
+    <Style TargetType="DataGridCell" x:Key="DGV_CeldaCN">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="3,0,3,0"/>
+        <Style.Triggers>
+            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                <Setter Property="Background" Value="#99BDE0F9" />
+                <Setter Property="Foreground" Value="#FF002399"/>
+                <Setter Property="BorderThickness" Value="0,0"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <!--ESTILO PARA EL DATAGRID PONE EN NEGRITA LA COLUMNA -->
+    <Style TargetType="DataGridCell" x:Key="DGV_Col_R" BasedOn="{StaticResource DGV_CeldaCN}">
+        <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+    </Style>
+    
+    <!--ESTILO PARA EL DATAGRID PONE EN NEGRITA LA COLUMNA -->
+    <Style TargetType="DataGridCell" x:Key="DGV_Col_L" BasedOn="{StaticResource DGV_CeldaCN}">
+        <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+    </Style>
+
+    <!--ESTILO PARA EL DATAGRID PONE EN NEGRITA LA COLUMNA -->
+    <Style TargetType="DataGridCell" x:Key="DGV_Col_C" BasedOn="{StaticResource DGV_CeldaCN}">
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+    </Style>
+    
+    
+    <!--ESTILO PARA EL DATAGRID PONE EN NEGRITA LA CELDA DONDE ESTA EL RATON -->
+    <Style TargetType="DataGridRow" x:Key="DGV_CeldaSeleccionada">
+        <Style.Triggers>
+            <Trigger Property="DataGridRow.IsMouseOver" Value="True">
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+</ResourceDictionary>

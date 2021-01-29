@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--xmlns:local="clr-namespace:App_Almacen_Expediciones.Diccionarios">-->
+
+
+    <!-- COLORES BRUSHES PARA UTILIZAR EN LAS APLICACIONES -->
+    <SolidColorBrush x:Key="ColorFuente" Color="#FFD31C1C"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorFondo" Color="#FFF1F1F1"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorBoton" Color="#FC4169E1"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorPrimary" Color="#FC130FE7"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorSecundary" Color="#FC44E719"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorBlanco" Color="#FFFFFFFF"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorNegro" Color="Black"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="ColorMenus" Color="#FFF1F1F1"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorTitulo" Color="#FFD31C1C"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorAzulRoyal" Color="#FC4169E1"></SolidColorBrush>
+    <SolidColorBrush x:Key="ColorVentana" Color="#FFECECEC"></SolidColorBrush>
+
+
+    <!-- GRADIENTES PARA UTILIZAR EN LAS APLICACIONES -->
+
+    <LinearGradientBrush x:Key="_GradienteFondoVentana"
+                     StartPoint="0,0"
+                     EndPoint="0,1">
+        <LinearGradientBrush.GradientStops>
+            <GradientStopCollection>
+                <GradientStop Color="#FFF1F1F1" Offset="0" />
+                <GradientStop Color="#6077777A" Offset="0.5" />
+                <GradientStop Color="#FFF1F1F1" Offset="1" />
+            </GradientStopCollection>
+        </LinearGradientBrush.GradientStops>
+    </LinearGradientBrush>
+
+   
+
+</ResourceDictionary>
