@@ -1,0 +1,114 @@
+﻿<Page x:Class="App_EmpresaDI.Paginas.pg_Clientes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:App_EmpresaDI.Paginas"
+      xmlns:jim="clr-namespace:App_EmpresaDI.Controles"
+      mc:Ignorable="d" 
+       d:DesignHeight="450" d:DesignWidth="800"
+      Title="pg_Clientes">
+
+    <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+
+        </Grid.RowDefinitions>
+        <Label x:Name="lb_Titulo" Content="CLIENTES" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource St_Titulo}"/>
+        <ListView Grid.Column="1" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                    <GridViewColumn/>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid x:Name="grid_Datos" Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="grid_Nombre"  Margin="5" Grid.Row="0" Grid.Column="1">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image  Grid.Column="0" Source="/Imagenes/user.ico" Margin="5" />
+                <TextBox x:Name="txtNombre" Grid.Column="1"   />
+            </Grid>
+            <Grid x:Name="grid_telefono"  Margin="5" Grid.Row="1" Grid.Column="1">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image  Grid.Column="0" Source="/Imagenes/phone.ico" Margin="5" />
+                <TextBox x:Name="txtTelefono" Grid.Column="1"   />
+            </Grid>
+            <Grid x:Name="grid_Direccion"  Margin="5" Grid.Row="2" Grid.Column="1">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="/Imagenes/mail.ico" Margin="5" />
+                <TextBox x:Name="txtDireccion" Grid.Column="1"   />
+            </Grid>
+            <Grid x:Name="grid_Ciudad"  Margin="5" Grid.Row="3" Grid.Column="1">
+                <Grid.Effect>
+                    <DropShadowEffect/>
+                </Grid.Effect>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="0" Source="/Imagenes/home.ico" Margin="5" />
+                <TextBox x:Name="txtCiudad" Grid.Column="1"   />
+            </Grid>
+           
+
+            <Grid x:Name="grid_Botones" Grid.Row="5" Grid.Column="1" Margin="10,1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btn_Add" Grid.Column="0" Content="Add"/>
+                <Button x:Name="btn_Update" Grid.Column="1" Content="Update"/>
+                <Button x:Name="btn_Del" Grid.Column="2" Content="Del"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

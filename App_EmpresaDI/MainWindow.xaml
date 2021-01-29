@@ -6,14 +6,8 @@
         xmlns:local="clr-namespace:App_EmpresaDI"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1024">
-    <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF2C99E4" Offset="0.56"/>
-                <GradientStop Color="White" Offset="0"/>
-                <GradientStop Color="#FF10A410" Offset="0.98"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes" Background="{StaticResource _GradienteFondoVentana}">
+       
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>

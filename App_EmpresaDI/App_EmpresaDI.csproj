@@ -60,6 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controles\TextEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Diccionarios\DictionaryJim.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,12 +92,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controles\TextEntrada.xaml.cs">
+      <DependentUpon>TextEntrada.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Paginas\pg_Clientes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Paginas\pg_Clientes.xaml.cs">
+      <DependentUpon>pg_Clientes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,15 +135,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controles\" />
-    <Folder Include="Imagenes\" />
-    <Folder Include="Paginas\" />
+    <Resource Include="Imagenes\home.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Logica\Capa_Logica.csproj">
       <Project>{15484f2f-19b4-4453-97e0-0113b9edcd2e}</Project>
       <Name>Capa_Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\user.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\phone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\mail.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

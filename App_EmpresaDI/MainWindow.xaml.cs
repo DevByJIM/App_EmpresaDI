@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using App_EmpresaDI.Paginas;
 
 namespace App_EmpresaDI
 {
@@ -35,7 +36,7 @@ namespace App_EmpresaDI
                     //fr_Paginas.Navigate(new pg_Home());
                     break;
                 case "btn_Clientes":
-                    //fr_Paginas.Navigate(new pg_Clientes());
+                    fr_Paginas.Navigate(new pg_Clientes());
                     break;
                 case "btn_Productos":
                     //fr_Paginas.Navigate(new pg_Productos());

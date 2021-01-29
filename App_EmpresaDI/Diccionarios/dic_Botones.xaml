@@ -257,9 +257,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border CornerRadius="5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Name="border">
+                    <Border CornerRadius="10" Margin="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Name="border">
                         <Grid>
-                            <Border Background = "{TemplateBinding Background}" CornerRadius="5" Name="BackBorder">
+                            <Border Background = "{TemplateBinding Background}" CornerRadius="10" Name="BackBorder">
                                 <Border.OpacityMask>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="#AAFFFFFF" Offset="0"/>
@@ -267,7 +267,7 @@
                                     </LinearGradientBrush>
                                 </Border.OpacityMask>
                             </Border>
-                            <Border Margin="1,1" CornerRadius="5" Height="5" VerticalAlignment="Top" >
+                            <Border Margin="3,1" CornerRadius="10,10,0,0" Height="5" VerticalAlignment="Top" >
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0,1">
                                         <GradientStop Color="#DDFFFFFF" Offset="0"/>
