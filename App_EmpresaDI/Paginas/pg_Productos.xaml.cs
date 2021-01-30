@@ -16,28 +16,22 @@ using System.Windows.Shapes;
 namespace App_EmpresaDI.Paginas
 {
     /// <summary>
-    /// Lógica de interacción para pg_Clientes.xaml
+    /// Lógica de interacción para pg_Productos.xaml
     /// </summary>
-    public partial class pg_Clientes : Page
+    public partial class pg_Productos : Page
     {
-        public pg_Clientes()
+        public pg_Productos()
         {
             InitializeComponent();
         }
-
-        private void ControlEntradas(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-
         private void AjusteFuentes(object sender, SizeChangedEventArgs e)
         {
             Double factorFuente = 0.05;
+            txtCodigo.FontSize = this.ActualHeight * factorFuente;
             txtNombre.FontSize = this.ActualHeight * factorFuente;
-            txtDireccion.FontSize = this.ActualHeight * factorFuente;
-            txtCiudad.FontSize = this.ActualHeight * factorFuente;
-            txtTelefono.FontSize = this.ActualHeight * factorFuente;
+            txtDescripcion.FontSize = this.ActualHeight * factorFuente;
+            txtStock.FontSize = this.ActualHeight * factorFuente;
+            txtPrecio.FontSize = this.ActualHeight * factorFuente;
             txtObservaciones.FontSize = this.ActualHeight * 0.04;
 
             foreach (Button btn in grid_Botones.Children)
@@ -45,6 +39,5 @@ namespace App_EmpresaDI.Paginas
                 ((Button)btn).FontSize = this.ActualHeight * 0.03;
             }
         }
-
     }
 }

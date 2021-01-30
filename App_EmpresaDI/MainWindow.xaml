@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <Label x:Name="lbTitulo" Grid.Row="0" Grid.Column="1" Content="App EMPRESA DI ByJIM®2021"
                Style="{StaticResource St_Titulo}"/>
@@ -29,12 +29,14 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
             <ToggleButton x:Name="btn_Home" Grid.Column="1" Content="HOME" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
             <ToggleButton x:Name="btn_Clientes" Grid.Column="2" Content="CLIENTES" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
-            <ToggleButton x:Name="btn_Productos" Grid.Column="3" Content="PRODUCTOS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
-            <ToggleButton x:Name="btn_Ventas" Grid.Column="4" Content="VENTAS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <ToggleButton x:Name="btn_Productos" Grid.Column="4" Content="PRODUCTOS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <ToggleButton x:Name="btn_Ventas" Grid.Column="5" Content="VENTAS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <Label x:Name="lbTituloSeccion" Grid.Column="3" Content="HOME" Style="{StaticResource St_Titulo}"/>
         </Grid>
 
         <Frame x:Name="fr_Paginas" Grid.Row="2" Grid.Column="1" NavigationUIVisibility="Hidden"/>

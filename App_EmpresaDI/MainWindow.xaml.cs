@@ -34,24 +34,28 @@ namespace App_EmpresaDI
             {
                 case "btn_Home":
                     //fr_Paginas.Navigate(new pg_Home());
+                    lbTituloSeccion.Content = "HOME";
                     break;
                 case "btn_Clientes":
                     fr_Paginas.Navigate(new pg_Clientes());
+                    lbTituloSeccion.Content = "CLIENTES";
                     break;
                 case "btn_Productos":
-                    //fr_Paginas.Navigate(new pg_Productos());
+                    fr_Paginas.Navigate(new pg_Productos());
+                    lbTituloSeccion.Content = "PRODUCTOS";
                     break;
                 case "btn_Ventas":
                     //fr_Paginas.Navigate(new pg_Ventas());
+                    lbTituloSeccion.Content = "VENTAS";
                     break;
             }
         }
 
         private void BotonesAlternar(object sender)
         {
-            foreach (ToggleButton btn in grid_Botones.Children)
+            foreach (Control ctl in grid_Botones.Children)
             {
-                btn.IsChecked = false;
+                if(ctl is ToggleButton) ((ToggleButton)ctl).IsChecked = false;
             }
             ((ToggleButton)sender).IsChecked = true;
         }
@@ -60,9 +64,10 @@ namespace App_EmpresaDI
         {
             lbTitulo.FontSize = this.ActualHeight * 0.05;
 
-            foreach (ToggleButton btn in grid_Botones.Children)
+            foreach (Control ctl in grid_Botones.Children)
             {
-                btn.FontSize = this.ActualHeight * 0.02;
+                if (ctl is ToggleButton) ctl.FontSize = this.ActualHeight * 0.02;
+                if (ctl is Label) ctl.FontSize = this.ActualHeight * 0.03;
             }
         }
     }
