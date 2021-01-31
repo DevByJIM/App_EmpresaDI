@@ -35,7 +35,7 @@
             <ToggleButton x:Name="btn_Home" Grid.Column="1" Content="HOME" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
             <ToggleButton x:Name="btn_Clientes" Grid.Column="2" Content="CLIENTES" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
             <ToggleButton x:Name="btn_Productos" Grid.Column="4" Content="PRODUCTOS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
-            <ToggleButton x:Name="btn_Ventas" Grid.Column="5" Content="VENTAS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
+            <ToggleButton x:Name="btn_Pedidos" Grid.Column="5" Content="PEDIDOS" Style="{StaticResource btnAlternar}" Click="TrabajarBotones"/>
             <Label x:Name="lbTituloSeccion" Grid.Column="3" Content="HOME" Style="{StaticResource St_Titulo}"/>
         </Grid>
 

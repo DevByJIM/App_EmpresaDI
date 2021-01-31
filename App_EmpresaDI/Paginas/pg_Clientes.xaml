@@ -59,52 +59,12 @@
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid x:Name="grid_Nombre"  Margin="5" Grid.Row="1" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image  Grid.Column="0" Source="/Imagenes/user.ico" Margin="5" />
-                <TextBox x:Name="txtNombre" Grid.Column="1" Style="{StaticResource EntradaDatos}"  />
-            </Grid>
-            <Grid x:Name="grid_telefono"  Margin="5" Grid.Row="2" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image  Grid.Column="0" Source="/Imagenes/phone.ico" Margin="5" />
-                <TextBox x:Name="txtTelefono" Grid.Column="1" Style="{StaticResource EntradaDatos}"   />
-            </Grid>
-            <Grid x:Name="grid_Direccion"  Margin="5" Grid.Row="3" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Source="/Imagenes/mail.ico" Margin="5" />
-                <TextBox x:Name="txtDireccion" Grid.Column="1"  Style="{StaticResource EntradaDatos}"  />
-            </Grid>
-            <Grid x:Name="grid_Ciudad"  Margin="5" Grid.Row="4" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Source="/Imagenes/home.ico" Margin="5" />
-                <TextBox x:Name="txtCiudad" Grid.Column="1" Style="{StaticResource EntradaDatos}"   />
-            </Grid>
-            <Grid x:Name="grid_Observaciones"  Margin="5" Grid.Row="5" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Source="/Imagenes/tag.ico" Margin="5" VerticalAlignment="Top" />
-                <TextBox x:Name="txtObservaciones" Grid.Column="1" Style="{StaticResource EntradaDatos}" 
-                         TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Top"  />
-            </Grid>
+            <jim:TextEntrada x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Icono="/Imagenes/user.ico" Hint="nombre cliente"/>
+            <jim:TextEntrada x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" Icono="/Imagenes/phone.ico" Hint="teléfono cliente"/>
+            <jim:TextEntrada x:Name="txtDireccion" Grid.Row="3" Grid.Column="1" Icono="/Imagenes/mail.ico" Hint="dirección cliente"/>
+            <jim:TextEntrada x:Name="txtCiudad" Grid.Row="4" Grid.Column="1" Icono="/Imagenes/home.ico" Hint="ciudad cliente"/>
+            <jim:TextEntrada x:Name="txtObservaciones" Grid.Row="5" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="ciudad cliente"/>
+            
         </Grid>
 
         <Grid x:Name="grid_Botones" Grid.Row="2" Grid.Column="2" Margin="50,10">

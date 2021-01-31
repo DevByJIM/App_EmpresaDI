@@ -25,6 +25,7 @@ namespace App_EmpresaDI
         public MainWindow()
         {
             InitializeComponent();
+            fr_Paginas.Navigate(new pg_Home());
         }
 
         private void TrabajarBotones(object sender, RoutedEventArgs e)
@@ -33,7 +34,7 @@ namespace App_EmpresaDI
             switch (((ToggleButton)sender).Name)
             {
                 case "btn_Home":
-                    //fr_Paginas.Navigate(new pg_Home());
+                    fr_Paginas.Navigate(new pg_Home());
                     lbTituloSeccion.Content = "HOME";
                     break;
                 case "btn_Clientes":
@@ -44,9 +45,9 @@ namespace App_EmpresaDI
                     fr_Paginas.Navigate(new pg_Productos());
                     lbTituloSeccion.Content = "PRODUCTOS";
                     break;
-                case "btn_Ventas":
-                    //fr_Paginas.Navigate(new pg_Ventas());
-                    lbTituloSeccion.Content = "VENTAS";
+                case "btn_Pedidos":
+                    fr_Paginas.Navigate(new pg_Pedidos());
+                    lbTituloSeccion.Content = "PEDIDOS";
                     break;
             }
         }
