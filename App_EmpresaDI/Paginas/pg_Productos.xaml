@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:App_EmpresaDI.Paginas"
+      xmlns:jim ="clr-namespace:App_EmpresaDI.Controles"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pg_Productos">
@@ -59,61 +60,13 @@
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
 
-            <Grid x:Name="grid_Codigo"  Margin="5" Grid.Row="0" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image  Grid.Column="0" Source="/Imagenes/package.ico" Margin="5" />
-                <TextBox x:Name="txtCodigo" Grid.Column="1" Style="{StaticResource EntradaDatos}"  />
-            </Grid>
-            <Grid x:Name="grid_Nombre"  Margin="5" Grid.Row="1" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image  Grid.Column="0" Source="/Imagenes/id_card.ico" Margin="5" />
-                <TextBox x:Name="txtNombre" Grid.Column="1" Style="{StaticResource EntradaDatos}"  />
-            </Grid>
-            <Grid x:Name="grid_Descripcion"  Margin="5" Grid.Row="2" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image  Grid.Column="0" Source="/Imagenes/pencil.ico" Margin="5" />
-                <TextBox x:Name="txtDescripcion" Grid.Column="1" Style="{StaticResource EntradaDatos}"   />
-            </Grid>
-            <Grid x:Name="grid_Stock"  Margin="5" Grid.Row="3" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Source="/Imagenes/database.ico" Margin="5" />
-                <TextBox x:Name="txtStock" Grid.Column="1"  Style="{StaticResource EntradaDatos}"  />
-            </Grid>
-            <Grid x:Name="grid_Precio"  Margin="5" Grid.Row="4" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Source="/Imagenes/euro.ico" Margin="5" />
-                <TextBox x:Name="txtPrecio" Grid.Column="1" Style="{StaticResource EntradaDatos}"   />
-            </Grid>
-            <Grid x:Name="grid_Observaciones"  Margin="5" Grid.Row="5" Grid.Column="1" Style="{StaticResource GridSombreado}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5*"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="0" Source="/Imagenes/tag.ico" Margin="5" VerticalAlignment="Top" />
-                <TextBox x:Name="txtObservaciones" Grid.Column="1" Style="{StaticResource EntradaDatos}" 
-                         TextWrapping="Wrap" AcceptsReturn="True" VerticalContentAlignment="Top"  />
-            </Grid>
+            <jim:TextEntrada x:Name="txtCodigo" Grid.Row="0" Grid.Column="1" Icono="/Imagenes/package.ico" Hint="código del producto"/>
+            <jim:TextEntrada x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Icono="/Imagenes/id_card.ico" Hint="nombre del producto"/>
+            <jim:TextEntradaWrap x:Name="txtDescripcion" Grid.Row="2" Grid.Column="1" Icono="/Imagenes/pencil.ico" Hint="descripción producto"/>
+            <jim:TextEntrada x:Name="txtStock" Grid.Row="3" Grid.Column="1" Icono="/Imagenes/database.ico" Hint="stock del producto" EsNumero="True"/>
+            <jim:TextEntrada x:Name="txtPrecio" Grid.Row="4" Grid.Column="1" Icono="/Imagenes/euro.ico" Hint="precio del producto" EsNumero="True"/>
+            <jim:TextEntradaWrap x:Name="txtObservaciones" Grid.Row="5" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="observaciones"/>
+            <TextBox x:Name="textBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="28,50,-99,0" Grid.Row="5" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
         </Grid>
 
@@ -126,9 +79,9 @@
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
 
-            <Button x:Name="btn_Add" Grid.Column="1" Content="Add" Margin="3" Style="{StaticResource BotonAzulRojo}"/>
-            <Button x:Name="btn_Update" Grid.Column="2" Content="Update" Margin="3" Style="{StaticResource BotonAzulRojo}"/>
-            <Button x:Name="btn_Del" Grid.Column="3" Content="Del" Margin="3" Style="{StaticResource BotonAzulRojo}"/>
+            <Button x:Name="btn_Add" Grid.Column="1" Content="Add" Margin="3" Style="{StaticResource BotonAzulRojo}" Click="TrabajoBotones"/>
+            <Button x:Name="btn_Update" Grid.Column="2" Content="Update" Margin="3" Style="{StaticResource BotonAzulRojo}" Click="TrabajoBotones"/>
+            <Button x:Name="btn_Del" Grid.Column="3" Content="Del" Margin="3" Style="{StaticResource BotonAzulRojo}" Click="TrabajoBotones"/>
         </Grid>
 
     </Grid>

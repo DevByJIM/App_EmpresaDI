@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa_Logica
 {
-    class Producto
+    public class Producto
     {
         private String codigo;
         private String nombre;

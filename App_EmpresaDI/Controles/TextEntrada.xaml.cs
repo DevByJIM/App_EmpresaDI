@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using ControlesByJIM;
+using System.Windows.Input;
 
 namespace App_EmpresaDI.Controles
 {
@@ -16,11 +17,19 @@ namespace App_EmpresaDI.Controles
         private String frase;
 
         private String hint;
+        private Boolean esNumero;
 
         public TextEntrada()
         {
             InitializeComponent();
             this.DataContext = this;
+        }
+
+        private void CargoControl(object sender, RoutedEventArgs e)
+        {
+            txtEntrada.Text = Hint;
+            Frase = txtEntrada.Text;
+            txtEntrada.Foreground = Brushes.LightGray;
         }
 
         private void PierdeFoco(object sender, RoutedEventArgs e)
@@ -42,10 +51,15 @@ namespace App_EmpresaDI.Controles
             }
         }
 
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void ControlEntradaTexto(object sender, KeyEventArgs e)
         {
-            txtEntrada.Text = Hint;
-            txtEntrada.Foreground = Brushes.LightGray;
+            if (esNumero)
+            {
+                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.Decimal)
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
         }
 
         private void ajustarFuentes(object sender, SizeChangedEventArgs e)
@@ -92,6 +106,19 @@ namespace App_EmpresaDI.Controles
             set
             {
                 hint = value;
+            }
+        }
+
+        public bool EsNumero
+        {
+            get
+            {
+                return esNumero;
+            }
+
+            set
+            {
+                esNumero = value;
             }
         }
 

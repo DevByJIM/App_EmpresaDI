@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ControlesByJIM;
+using Capa_Logica;
 
 namespace App_EmpresaDI.Paginas
 {
@@ -25,10 +16,44 @@ namespace App_EmpresaDI.Paginas
             InitializeComponent();
         }
 
-        private void ControlEntradas(object sender, TextChangedEventArgs e)
+        private void TrabajoBotones(object sender, RoutedEventArgs e)
         {
-
+            ComprobamosDatos();
+            switch (((Button)sender).Name)
+            {
+                case "btnAdd":                 
+                    new wid_MessageBox("CLIENTE INTRODUCIDO CON EXITO");
+                    break;
+                case "btnupdate":
+                    new wid_MessageBox("CLIENTE ACTUALIZADO CON EXITO");
+                    break;
+                case "btnDel":
+                    new wid_MessageBox("CLIENTE ELIMINADO CON EXITO");
+                    break;
+            }
         }
+
+        private void ComprobamosDatos()
+        {
+            if (txtNombre.Frase == "" || txtNombre.Frase == txtNombre.Hint)
+            {
+                new wid_MessageBox("EL NOMBRE DEL CLIENTE NO PUEDE ESTAR VACIO");
+            }
+            else if (txtTelefono.Frase == "" || txtTelefono.Frase == txtTelefono.Hint)
+            {
+                new wid_MessageBox("EL TELEFONO DEL CLIENTE NO PUEDE ESTAR VACIO");
+            }
+            else if (txtDireccion.Frase == "" || txtDireccion.Frase == txtDireccion.Hint)
+            {
+                new wid_MessageBox("LA DIRECCION DEL CLIENTE NO PUEDE ESTAR VACIO");
+            }
+            else if (txtCiudad.Frase == "" || txtCiudad.Frase == txtCiudad.Hint)
+            {
+                new wid_MessageBox("LA CIUDAD DEL CLIENTE NO PUEDE ESTAR VACIO");
+            }
+        }
+
+
 
 
         private void AjusteFuentes(object sender, SizeChangedEventArgs e)

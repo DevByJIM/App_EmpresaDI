@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControlesByJIM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,49 @@ namespace App_EmpresaDI.Paginas
         {
             InitializeComponent();
         }
+
+        private void TrabajoBotones(object sender, RoutedEventArgs e)
+        {
+            ComprobamosDatos();
+            switch (((Button)sender).Name)
+            {
+                case "btnAdd":
+                    new wid_MessageBox("PRODUCTO INTRODUCIDO CON EXITO");
+                    break;
+                case "btnupdate":
+                    new wid_MessageBox("PRODUCTO ACTUALIZADO CON EXITO");
+                    break;
+                case "btnDel":
+                    new wid_MessageBox("PRODUCTO ELIMINADO CON EXITO");
+                    break;
+            }
+        }
+
+        private void ComprobamosDatos()
+        {
+            if(txtCodigo.Frase =="" || txtCodigo.Frase == txtCodigo.Hint)
+            {
+                new wid_MessageBox("EL CODIGO DEL PRODUCTO NO PUEDE ESTAR VACIO");
+            }
+            else if (txtNombre.Frase == "" || txtNombre.Frase == txtNombre.Hint)
+            {
+                new wid_MessageBox("EL NOMBRE DEL PRODUCTO NO PUEDE ESTAR VACIO");
+            }
+            else if (txtDescripcion.Frase == "" || txtDescripcion.Frase == txtDescripcion.Hint)
+            {
+                new wid_MessageBox("LA DESCRIPCION DEL PRODUCTO NO PUEDE ESTAR VACIO");
+            }
+            else if (txtStock.Frase == "" || txtStock.Frase == txtStock.Hint)
+            {
+                new wid_MessageBox("EL STOCK DEL PRODUCTO NO PUEDE ESTAR VACIO");
+            }
+            else if (txtPrecio.Frase == "" || txtPrecio.Frase == txtPrecio.Hint)
+            {
+                new wid_MessageBox("EL PRECIO DEL PRODUCTO NO PUEDE ESTAR VACIO");
+            }
+        }
+
+
         private void AjusteFuentes(object sender, SizeChangedEventArgs e)
         {
             Double factorFuente = 0.05;

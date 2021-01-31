@@ -60,10 +60,10 @@
             </Grid.ColumnDefinitions>
 
             <jim:TextEntrada x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Icono="/Imagenes/user.ico" Hint="nombre cliente"/>
-            <jim:TextEntrada x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" Icono="/Imagenes/phone.ico" Hint="teléfono cliente"/>
+            <jim:TextEntrada x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" Icono="/Imagenes/phone.ico" Hint="teléfono cliente" EsNumero="True"/>
             <jim:TextEntrada x:Name="txtDireccion" Grid.Row="3" Grid.Column="1" Icono="/Imagenes/mail.ico" Hint="dirección cliente"/>
             <jim:TextEntrada x:Name="txtCiudad" Grid.Row="4" Grid.Column="1" Icono="/Imagenes/home.ico" Hint="ciudad cliente"/>
-            <jim:TextEntrada x:Name="txtObservaciones" Grid.Row="5" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="ciudad cliente"/>
+            <jim:TextEntradaWrap x:Name="txtObservaciones" Grid.Row="5" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="observaciones"/>
             
         </Grid>
 
@@ -76,9 +76,9 @@
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
 
-                <Button x:Name="btn_Add" Grid.Column="1" Content="Add" Margin="3" Style="{StaticResource BotonAzulRojo}"/>
-            <Button x:Name="btn_Update" Grid.Column="2" Content="Update" Margin="3" Style="{StaticResource BotonAzulRojo}"/>
-            <Button x:Name="btn_Del" Grid.Column="3" Content="Del" Margin="3" Style="{StaticResource BotonAzulRojo}"/>
+            <Button x:Name="btn_Add" Grid.Column="1" Content="Add" Margin="3" Style="{StaticResource BotonAzulRojo}" Click="TrabajoBotones"/>
+            <Button x:Name="btn_Update" Grid.Column="2" Content="Update" Margin="3" Style="{StaticResource BotonAzulRojo}" Click="TrabajoBotones"/>
+            <Button x:Name="btn_Del" Grid.Column="3" Content="Del" Margin="3" Style="{StaticResource BotonAzulRojo}" Click="TrabajoBotones"/>
             </Grid>
         
     </Grid>

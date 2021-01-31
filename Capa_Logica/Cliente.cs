@@ -6,22 +6,25 @@ using System.Threading.Tasks;
 
 namespace Capa_Logica
 {
-    class Cliente
+    public class Cliente
     {
         private String id;
         private String nombre;
         private String direccion;
         private String telefono;
         private String ciudad;
+        private String observaciones;
 
         public Cliente() { }
-        public Cliente(string id, string nombre, string direccion, string telefono, string ciudad)
+
+        public Cliente(string id, string nombre, string direccion, string telefono, string ciudad, string observaciones)
         {
             this.id = id;
             this.nombre = nombre;
             this.direccion = direccion;
             this.telefono = telefono;
             this.ciudad = ciudad;
+            this.observaciones = observaciones;
         }
 
 
@@ -88,6 +91,19 @@ namespace Capa_Logica
             set
             {
                 ciudad = value;
+            }
+        }
+
+        public string Observaciones
+        {
+            get
+            {
+                return observaciones;
+            }
+
+            set
+            {
+                observaciones = value;
             }
         }
         #endregion

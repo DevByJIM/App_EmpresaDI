@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:App_EmpresaDI.Controles"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="500" Loaded="UserControl_Loaded">
-    <Grid Margin="3" SizeChanged="ajustarFuentes">
+             d:DesignHeight="70" d:DesignWidth="500" Loaded="CargoControl">
+    <Grid Margin="3,5" SizeChanged="ajustarFuentes">
         <Grid.Effect>
             <DropShadowEffect BlurRadius="3" ShadowDepth="3"/>
         </Grid.Effect>
@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <Image x:Name="img_Icono" Grid.Column="0"  Margin="5,5,0,5" Source="{Binding Icono}"/>
-        <TextBox x:Name="txtEntrada" Grid.Column="1" Style="{StaticResource EntradaDatos}"
-                  LostFocus="PierdeFoco" GotFocus="CojoFoco"/>
+        <TextBox x:Name="txtEntrada" Grid.Column="1" Style="{StaticResource EntradaDatos}" Text="{Binding Frase}"
+                  LostFocus="PierdeFoco" GotFocus="CojoFoco" KeyDown="ControlEntradaTexto"/>
     </Grid>
 </UserControl>
