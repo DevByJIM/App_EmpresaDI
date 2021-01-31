@@ -11,18 +11,16 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="153*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="51*"/>
-            <RowDefinition Height="205*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="131*"/>
-            <ColumnDefinition Width="91*"/>
-            <ColumnDefinition Width="178*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Controles:TextEntrada Icono="/Imagenes/tag.ico" Hint="Introduce el nombre" Grid.Column="1" Grid.Row="1"/>
-        <Controles:TextEntrada Icono="/Imagenes/tag.ico" Hint="Introduce el apellido" Grid.Column="1" Grid.Row="2" />
     </Grid>
 </Page>

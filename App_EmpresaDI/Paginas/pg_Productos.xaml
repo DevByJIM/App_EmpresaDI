@@ -66,7 +66,6 @@
             <jim:TextEntrada x:Name="txtStock" Grid.Row="3" Grid.Column="1" Icono="/Imagenes/database.ico" Hint="stock del producto" EsNumero="True"/>
             <jim:TextEntrada x:Name="txtPrecio" Grid.Row="4" Grid.Column="1" Icono="/Imagenes/euro.ico" Hint="precio del producto" EsNumero="True"/>
             <jim:TextEntradaWrap x:Name="txtObservaciones" Grid.Row="5" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="observaciones"/>
-            <TextBox x:Name="textBox" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="28,50,-99,0" Grid.Row="5" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
         </Grid>
 
