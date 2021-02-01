@@ -22,5 +22,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Image x:Name="img_Logo" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/Imagenes/logodi.png"/>
     </Grid>
 </Page>

@@ -60,6 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controles\CboxEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\PckDateEntrada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controles\TextEntrada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +103,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controles\CboxEntrada.xaml.cs">
+      <DependentUpon>CboxEntrada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\PckDateEntrada.xaml.cs">
+      <DependentUpon>PckDateEntrada.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controles\TextEntrada.xaml.cs">
       <DependentUpon>TextEntrada.xaml</DependentUpon>
@@ -203,6 +217,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\estado.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\Player_Fwd.png" />
+    <Resource Include="Imagenes\Player_Next.png" />
+    <Resource Include="Imagenes\Player_Prev.png" />
+    <Resource Include="Imagenes\Player_Rew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\logodi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

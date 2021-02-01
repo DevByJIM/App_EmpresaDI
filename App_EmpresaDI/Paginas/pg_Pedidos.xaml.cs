@@ -27,20 +27,20 @@ namespace App_EmpresaDI.Paginas
 
         private void AjusteFuentes(object sender, SizeChangedEventArgs e)
         {
-            //Double factorFuente = 0.05;
+            Double factorFuente = 0.05;
             lbTituloCabecera.FontSize = this.ActualHeight * 0.02;
             lbTituloLineas.FontSize = this.ActualHeight * 0.02;
-            //txtCodigo.FontSize = this.ActualHeight * factorFuente;
-            //cbNombre.FontSize = this.ActualHeight * factorFuente;
-            //dtp_Fecha.FontSize = this.ActualHeight * factorFuente;
-            //txtComentarios.FontSize = this.ActualHeight * factorFuente;
-            //cbEstado.FontSize = this.ActualHeight * factorFuente;
-            //txtObservaciones.FontSize = this.ActualHeight * 0.04;
+            txt_CodPedido.FontSize = this.ActualHeight * factorFuente;
+            txt_Cliente.FontSize = this.ActualHeight * factorFuente;
+            txt_Fecha.FontSize = this.ActualHeight * factorFuente;
+            txt_Estado.FontSize = this.ActualHeight * factorFuente;
+            txt_Comentario.FontSize = this.ActualHeight * factorFuente;
 
-            //foreach (Button btn in grid_Botones.Children)
-            //{
-            //    ((Button)btn).FontSize = this.ActualHeight * 0.03;
-            //}
+            foreach (Button btn in grid_ControlRegistros.Children)           
+                ((Button)btn).FontSize = this.ActualHeight * 0.03;
+            foreach (Button btn in grid_ControlLineas.Children)
+                ((Button)btn).FontSize = this.ActualHeight * 0.03;
+
         }
     }
 }

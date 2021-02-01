@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:jim="clr-namespace:App_EmpresaDI.Controles"
       xmlns:local="clr-namespace:App_EmpresaDI.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -17,7 +18,7 @@
             </Setter>
         </Style>
         <Style TargetType="Border" x:Key="BordeDetalle" >
-            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="CornerRadius" Value="5"/>
             <Setter Property="BorderBrush" Value="Gray"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Margin" Value="0,10"/>
@@ -27,12 +28,13 @@
 
     <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.05*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="572*"/>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -41,19 +43,64 @@
             <Grid x:Name="grid_Cabecera" Margin="10" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lbTituloCabecera" Content="CABECERA PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Top"/>
+                <Label x:Name="lbTituloCabecera" Content="CABECERA PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Foreground="#FC308CCB"/>
 
+                <jim:TextEntrada x:Name="txt_CodPedido" Grid.Row="1" Grid.Column="0" Icono="/Imagenes/id_card.ico" Hint="codigo pedido"/>
+                <jim:CboxEntrada x:Name="txt_Cliente" Grid.Row="1" Grid.Column="2" Icono="/Imagenes/user.ico" Hint="nombre cliente"/>
+                <jim:PckDateEntrada x:Name="txt_Fecha" Grid.Row="2" Grid.Column="0" Icono="/Imagenes/calendar.ico" Hint="fecha pedido"/>
+                <jim:CboxEntrada x:Name="txt_Estado" Grid.Row="3" Grid.Column="0" Icono="/Imagenes/estado.ico" Hint="estado pedido"/>
+                <jim:TextEntradaWrap x:Name="txt_Comentario" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Icono="/Imagenes/pencil.ico" Hint="observaciones"/>
+
+                <Grid x:Name="grid_Controles" Grid.Row="4" Grid.ColumnSpan="3" Margin="10,10,10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnFirstReg" Grid.Column="1" Style="{StaticResource BotonAzulRojo}"  Margin="3">
+                        <Image Source="/Imagenes/Player_Prev.png" Margin="3"/>
+                    </Button>
+                    <Button x:Name="btnPrevReg" Grid.Column="2" Style="{StaticResource BotonAzulRojo}" Margin="3">
+                        <Image Source="/Imagenes/Player_Rew.png" Margin="3"/>
+                    </Button>
+                    <Button x:Name="btnNextReg" Grid.Column="3" Style="{StaticResource BotonAzulRojo}" Margin="3">
+                        <Image Source="/Imagenes/Player_Fwd.png" Margin="3"/>
+                    </Button>
+                    <Button x:Name="btnLastReg" Grid.Column="4" Style="{StaticResource BotonAzulRojo}" Margin="3">
+                        <Image Source="/Imagenes/Player_Next.png" Margin="3"/>
+                    </Button>
+                </Grid>
             </Grid>
         </Border>
+
+        <Grid x:Name="grid_ControlRegistros" Grid.Row="1" Grid.Column="2" Margin="30,10,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnDel" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+        </Grid>
+
 
         <Border x:Name="bor_Lineas" Grid.Row="2" Grid.Column="1" Style="{StaticResource BordeDetalle}">
             <Grid x:Name="grid_Lineas" Margin="10" >
@@ -68,9 +115,23 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lbTituloLineas" Content="LINEAS DEL PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"/>
+                <Label x:Name="lbTituloLineas" Content="LINEAS DEL PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"  Foreground="#FC308CCB"/>
 
             </Grid>
         </Border>
+
+        <Grid x:Name="grid_ControlLineas" Grid.Row="2" Grid.Column="2" Margin="30,10,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnAddLinea" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnUpdateLinea" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnDelLinea" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+        </Grid>
+
     </Grid>
 </Page>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_EmpresaDI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1024">
+        Title="App Empresa DI. Developed by José Ignacio Martínez" Height="860" Width="1360">
     <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes" Background="{StaticResource _GradienteFondoVentana}">
        
         <Grid.ColumnDefinitions>
@@ -40,6 +40,10 @@
         </Grid>
 
         <Frame x:Name="fr_Paginas" Grid.Row="2" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <StatusBar x:Name="barraEstado" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="3" >
+            <Label x:Name="lbFecha" Content="01/01/2000" Margin="10,0"/>
+            <Label x:Name="lbHora" Content="00:00:00" Margin="10,0"/>
+        </StatusBar>
 
     </Grid>
 </Window>
