@@ -35,8 +35,8 @@
         <DataGrid x:Name="dgv_Clientes" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" AlternatingRowBackground="LightGray" 
                   AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="dgId" Binding="{Binding CLI_ID}" Header="ID" Width="0.3*"/>
-                <DataGridTextColumn x:Name="dgNombre" Binding="{Binding CLI_NOMBRE}" Header="NOMBRE" Width="*"/>
+                <DataGridTextColumn x:Name="dgId" Binding="{Binding NIF}" Header="ID" Width="0.3*"/>
+                <DataGridTextColumn x:Name="dgNombre" Binding="{Binding NOMBRE}" Header="NOMBRE" Width="2*"/>
                 <DataGridTextColumn x:Name="dgTelefono" Binding="{Binding CLI_NOMBRE}" Header="TFNO" Width="*"/>
                 <DataGridTextColumn x:Name="dgDireccion" Binding="{Binding CLI_NOMBRE}" Header="DIRECC" Width="*"/>
                 <DataGridTextColumn x:Name="dgCiudad" Binding="{Binding CLI_NOMBRE}" Header="CIUDAD" Width="*"/>

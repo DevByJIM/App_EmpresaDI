@@ -35,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlesByJIM">
-      <HintPath>..\..\..\..\..\..\ByJIM\ControlesByJIM.exe</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\ControlesByJIM.exe</HintPath>
     </Reference>
     <Reference Include="LibreriasByJIM">
-      <HintPath>..\..\..\..\..\..\ByJIM\LibreriasByJIM.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\LibreriasByJIM.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,8 +11,10 @@ namespace Capa_Datos
 {
     public class miBBDD
     {
-        static SqlConnection Conexion = new SqlConnection("Data Source=SERVERACP;DataBase=Produccion ACP;;Integrated Security=True");
-
+        //static SqlConnection Conexion = new SqlConnection("Data Source=SERVERACP;DataBase=Produccion ACP;;Integrated Security=True");
+        static MySqlConnection Conexion = 
+            new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;password=root;database=initialdbyjim;");
+        
         private static void abrir_Conexion() //METODO PARA ABRIR CONEXION
         {
             if (Conexion.State == ConnectionState.Closed)
@@ -31,12 +34,12 @@ namespace Capa_Datos
         public static DataTable ConsultaSQL(String miSQL)
         {
             DataTable dt = new DataTable();
-            SqlDataAdapter da;
+            MySqlDataAdapter da;
 
             try
             {
                 abrir_Conexion();
-                da = new SqlDataAdapter(miSQL, Conexion);
+                da = new MySqlDataAdapter(miSQL, Conexion);
                 da.Fill(dt);
                 return dt;
             }
@@ -56,12 +59,12 @@ namespace Capa_Datos
         /// <param name="Consulta SQL"></param>
         public static Boolean EjecutarOrdenSQL(String miSQL)
         {
-            SqlCommand cmd;
+            MySqlCommand cmd;
 
             try
             {
                 abrir_Conexion();
-                cmd = new SqlCommand(miSQL, Conexion);
+                cmd = new MySqlCommand(miSQL, Conexion);
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.ExecuteNonQuery();
                 return true;

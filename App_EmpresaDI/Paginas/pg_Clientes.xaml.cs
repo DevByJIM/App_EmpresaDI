@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using ControlesByJIM;
 using Capa_Logica;
+using System.Data;
 
 namespace App_EmpresaDI.Paginas
 {
@@ -11,9 +12,12 @@ namespace App_EmpresaDI.Paginas
     /// </summary>
     public partial class pg_Clientes : Page
     {
+        Cliente cliente = new Cliente();
         public pg_Clientes()
         {
             InitializeComponent();
+            
+             dgv_Clientes.ItemsSource = cliente.Damelistado().DefaultView;
         }
 
         private void TrabajoBotones(object sender, RoutedEventArgs e)

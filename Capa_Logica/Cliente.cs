@@ -1,8 +1,10 @@
 ﻿using System;
+using Capa_Datos;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Capa_Logica
 {
@@ -26,7 +28,11 @@ namespace Capa_Logica
             this.ciudad = ciudad;
             this.observaciones = observaciones;
         }
-
+        
+        public DataTable Damelistado()
+        {
+            return miBBDD.ConsultaSQL("SELECT * FROM CLIENTES");
+        }
 
         #region PROPIEDADES
         public string Id
