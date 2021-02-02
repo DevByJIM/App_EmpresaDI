@@ -32,16 +32,16 @@
             <RowDefinition Height="0.1*"/>
 
         </Grid.RowDefinitions>
-        <ListView Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Nombre" Width="80"/>
-                    <GridViewColumn Header="Direccion" Width="140"/>
-                    <GridViewColumn Header="Telefono" Width="80"/>
-                    <GridViewColumn Header="Ciudad" Width="60"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <DataGrid x:Name="dgv_Clientes" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" AlternatingRowBackground="LightGray" 
+                  AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="dgId" Binding="{Binding CLI_ID}" Header="ID" Width="0.3*"/>
+                <DataGridTextColumn x:Name="dgNombre" Binding="{Binding CLI_NOMBRE}" Header="NOMBRE" Width="*"/>
+                <DataGridTextColumn x:Name="dgTelefono" Binding="{Binding CLI_NOMBRE}" Header="TFNO" Width="*"/>
+                <DataGridTextColumn x:Name="dgDireccion" Binding="{Binding CLI_NOMBRE}" Header="DIRECC" Width="*"/>
+                <DataGridTextColumn x:Name="dgCiudad" Binding="{Binding CLI_NOMBRE}" Header="CIUDAD" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Grid x:Name="grid_Datos" Grid.Row="1" Grid.Column="2" Margin="10" >
             <Grid.RowDefinitions>
@@ -49,8 +49,8 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -59,11 +59,11 @@
                 <ColumnDefinition Width="0.2*"/>
             </Grid.ColumnDefinitions>
 
-            <jim:TextEntrada x:Name="txtNombre" Grid.Row="1" Grid.Column="1" Icono="/Imagenes/user.ico" Hint="nombre cliente"/>
-            <jim:TextEntrada x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" Icono="/Imagenes/phone.ico" Hint="teléfono cliente" EsNumero="True"/>
-            <jim:TextEntrada x:Name="txtDireccion" Grid.Row="3" Grid.Column="1" Icono="/Imagenes/mail.ico" Hint="dirección cliente"/>
-            <jim:TextEntrada x:Name="txtCiudad" Grid.Row="4" Grid.Column="1" Icono="/Imagenes/home.ico" Hint="ciudad cliente"/>
-            <jim:TextEntradaWrap x:Name="txtObservaciones" Grid.Row="5" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="observaciones"/>
+            <jim:TextEntrada x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Icono="/Imagenes/user.ico" Hint="nombre cliente"/>
+            <jim:TextEntrada x:Name="txtTelefono" Grid.Row="1" Grid.Column="1" Icono="/Imagenes/phone.ico" Hint="teléfono cliente" EsNumero="True"/>
+            <jim:TextEntrada x:Name="txtDireccion" Grid.Row="2" Grid.Column="1" Icono="/Imagenes/mail.ico" Hint="dirección cliente"/>
+            <jim:TextEntrada x:Name="txtCiudad" Grid.Row="3" Grid.Column="1" Icono="/Imagenes/home.ico" Hint="ciudad cliente"/>
+            <jim:TextEntradaWrap x:Name="txtObservaciones" Grid.Row="4" Grid.Column="1" Icono="/Imagenes/tag.ico" Hint="observaciones"/>
             
         </Grid>
 
