@@ -7,22 +7,33 @@
         mc:Ignorable="d"
         Title="App Empresa DI. Developed by José Ignacio Martínez" Height="860" Width="1360">
     <Grid x:Name="grid_Main" SizeChanged="AjusteFuentes" Background="{StaticResource _GradienteFondoVentana}">
-       
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="0.05*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="553*"/>
+            <RowDefinition Height="55*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="lbTitulo" Grid.Row="0" Grid.Column="1" Content="App EMPRESA DI ByJIM®2021"
+        <Menu x:Name="menuMain" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource miMenu}">
+            <MenuItem Header="Archivo">
+                <MenuItem Header="Salir" Click="TrabajoMenu"/>
+            </MenuItem>
+            <MenuItem Header="BBDD">
+                <MenuItem Header="Crear BBDD" Click="TrabajoMenu"/>
+                <MenuItem Header="Eliminar BBDD" Click="TrabajoMenu"/>
+            </MenuItem>
+            <MenuItem Header="Acerca De" Click="TrabajoMenu"/>
+        </Menu>
+        <Label x:Name="lbTitulo" Grid.Row="1" Grid.Column="1" Content="App EMPRESA DI ByJIM®2021"
                Style="{StaticResource St_Titulo}"/>
 
-        <Grid x:Name="grid_Botones" Grid.Row="1" Grid.Column="1">
+        <Grid x:Name="grid_Botones" Grid.Row="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*"/>
                 <ColumnDefinition Width="*"/>
@@ -39,8 +50,8 @@
             <Label x:Name="lbTituloSeccion" Grid.Column="3" Content="HOME" Style="{StaticResource St_Titulo}"/>
         </Grid>
 
-        <Frame x:Name="fr_Paginas" Grid.Row="2" Grid.Column="1" NavigationUIVisibility="Hidden"/>
-        <StatusBar x:Name="barraEstado" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="3" >
+        <Frame x:Name="fr_Paginas" Grid.Row="3" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+        <StatusBar x:Name="barraEstado" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,12,3,11" HorizontalContentAlignment="Stretch" HorizontalAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Center" >
             <Label x:Name="lbFecha" Content="01/01/2000" Margin="10,0"/>
             <Label x:Name="lbHora" Content="00:00:00" Margin="10,0"/>
         </StatusBar>

@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using ControlesByJIM;
 using System.Windows.Input;
 
 namespace App_EmpresaDI.Controles
@@ -55,7 +54,7 @@ namespace App_EmpresaDI.Controles
         {
             if (esNumero)
             {
-                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.Decimal)
+                if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9 || e.Key == Key.Decimal || e.Key == Key.Tab)
                     e.Handled = false;
                 else
                     e.Handled = true;

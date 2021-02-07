@@ -10,13 +10,13 @@ namespace App_EmpresaDI.Paginas
     /// <summary>
     /// Lógica de interacción para pg_Clientes.xaml
     /// </summary>
-    public partial class pg_Clientes : Page
+    public partial class pg_DeClientes : Page
     {
-        Cliente cliente;
-        public pg_Clientes()
+        Cliente cliente = new Cliente();
+        public pg_DeClientes()
         {
             InitializeComponent();
-            CargamosDatos();             
+            //CargamosDatos();             
         }
 
         private void CargamosDatos()

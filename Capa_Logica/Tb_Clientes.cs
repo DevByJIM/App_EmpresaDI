@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Capa_Datos;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +15,10 @@ namespace Capa_Logica
         /// <summary>
         /// Clase que nos devuelve un listado con los clientes de la tabla CLIENTES.
         /// </summary>
-        public static List<Cliente> listadoClientes()
-        {         
-            return null;
+        public static DataTable listadoClientes()
+        {
+            return miBBDD.ConsultaSQL("SELECT * FROM TBCLIENTES");
+
         }
 
         /// <summary>
@@ -23,6 +26,8 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean siExisteCliente(Cliente cliente)
         {
+            DataTable dt = miBBDD.ConsultaSQL("SELECT * FROM TBCLIENTES WHERE CLI_CODIGO = " + cliente.Id);
+            if (dt.Rows.Count > 0) return true;
             return false;
         }
 
@@ -31,6 +36,7 @@ namespace Capa_Logica
         /// </summary>
         static Boolean addCliente(Cliente cliente)
         {
+            var cmd = new SqlCommand():
             return false;
         }
 

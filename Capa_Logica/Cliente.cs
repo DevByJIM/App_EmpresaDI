@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using LibreriasByJIM.Controles_JIM;
 
 namespace Capa_Logica
 {
@@ -31,7 +32,16 @@ namespace Capa_Logica
         
         public DataTable Damelistado()
         {
-            return miBBDD.ConsultaSQL("SELECT * FROM CLIENTES");
+            try
+            {
+                return miBBDD.ConsultaSQL("SELECT * FROM CLIENTES");
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR LISTADO CLIENTE", ex);
+                return null;
+            }
+
         }
 
         #region PROPIEDADES

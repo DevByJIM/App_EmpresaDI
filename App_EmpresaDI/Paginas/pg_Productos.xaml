@@ -37,6 +37,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nombre" Width="80"/>
+                    <GridViewColumn Header="Nombre" Width="80"/>
                     <GridViewColumn Header="Direccion" Width="140"/>
                     <GridViewColumn Header="Telefono" Width="80"/>
                     <GridViewColumn Header="Ciudad" Width="60"/>

@@ -19,9 +19,9 @@ namespace App_EmpresaDI.Paginas
     /// <summary>
     /// Lógica de interacción para pg_Productos.xaml
     /// </summary>
-    public partial class pg_Productos : Page
+    public partial class pg_DeProductos : Page
     {
-        public pg_Productos()
+        public pg_DeProductos()
         {
             InitializeComponent();
         }

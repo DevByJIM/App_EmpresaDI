@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using App_EmpresaDI.Paginas;
+using LibreriasByJIM;
+using LibreriasByJIM.Controles_JIM;
+using Capa_Logica;
 
 namespace App_EmpresaDI
 {
@@ -38,11 +29,11 @@ namespace App_EmpresaDI
                     lbTituloSeccion.Content = "HOME";
                     break;
                 case "btn_Clientes":
-                    fr_Paginas.Navigate(new pg_Clientes());
+                    fr_Paginas.Navigate(new pg_DeClientes());
                     lbTituloSeccion.Content = "CLIENTES";
                     break;
                 case "btn_Productos":
-                    fr_Paginas.Navigate(new pg_Productos());
+                    fr_Paginas.Navigate(new pg_DeProductos());
                     lbTituloSeccion.Content = "PRODUCTOS";
                     break;
                 case "btn_Pedidos":
@@ -61,6 +52,28 @@ namespace App_EmpresaDI
             ((ToggleButton)sender).IsChecked = true;
         }
 
+        private void TrabajoMenu(object sender, RoutedEventArgs e)
+        {
+            switch (((MenuItem)sender).Header.ToString())
+            {
+                case "Salir":
+                    this.Close();
+                    break;
+
+                case "Eliminar BBDD":
+                    myBBDD.EliminarBBDD();
+                    break;
+
+                case "Crear BBDD":
+                    myBBDD.CrearBBDD();
+                    break;
+                case "Acerca De":
+
+                    break;
+            }
+
+        }
+
         private void AjusteFuentes(object sender, SizeChangedEventArgs e)
         {
             lbTitulo.FontSize = this.ActualHeight * 0.05;
@@ -71,5 +84,7 @@ namespace App_EmpresaDI
                 if (ctl is Label) ctl.FontSize = this.ActualHeight * 0.03;
             }
         }
+
+
     }
 }
