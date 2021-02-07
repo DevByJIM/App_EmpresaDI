@@ -16,12 +16,12 @@ namespace App_EmpresaDI.Paginas
         public pg_DeClientes()
         {
             InitializeComponent();
-            //CargamosDatos();             
+            CargamosDatos();             
         }
 
         private void CargamosDatos()
         {
-            DataTable dt = cliente.Damelistado();
+            DataTable dt = Tb_Clientes.listadoClientes();
 
             if (dt != null)
                 dgv_Clientes.ItemsSource = dt.DefaultView;          
@@ -33,16 +33,23 @@ namespace App_EmpresaDI.Paginas
             {
                 switch (((Button)sender).Name)
                 {
-                    case "btnAdd":
-                        new MensajeBox("CLIENTE INTRODUCIDO CON EXITO");
+                    case "btn_Add":
+                        creamosCliente();
+                        if (Tb_Clientes.addCliente(cliente)) 
+                            new MensajeBox("CLIENTE INTRODUCIDO CON EXITO");
                         break;
-                    case "btnupdate":
-                        new MensajeBox("CLIENTE ACTUALIZADO CON EXITO");
+                    case "btn_Update":
+                        creamosCliente();
+                        if (Tb_Clientes.updateCliente(cliente))
+                            new MensajeBox("CLIENTE ACTUALIZADO CON EXITO");
                         break;
-                    case "btnDel":
-                        new MensajeBox("CLIENTE ELIMINADO CON EXITO");
+                    case "btn_Del":
+                        creamosCliente();
+                        if (Tb_Clientes.delCliente(cliente))
+                            new MensajeBox("CLIENTE ELIMINADO CON EXITO");
                         break;
                 }
+                CargamosDatos();
             }
         }
 
@@ -77,9 +84,11 @@ namespace App_EmpresaDI.Paginas
         private void creamosCliente()
         {
             cliente = new Cliente();
-            cliente.Nombre = txtNombre.Content.ToString();
-            cliente.Telefono = txtTelefono.Content.ToString(); ;
-            cliente.Direccion = txtDireccion.Content.ToString();
+            cliente.Nombre = txtNombre.Frase;
+            cliente.Telefono = txtTelefono.Frase;
+            cliente.Direccion = txtDireccion.Frase;
+            cliente.Ciudad = txtCiudad.Frase;
+            cliente.Observaciones = txtObservaciones.Frase;
         }
 
 
@@ -103,5 +112,14 @@ namespace App_EmpresaDI.Paginas
         }
         #endregion
 
+        private void CargaInformacion(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DataRowView miRow = (DataRowView)dgv_Clientes.SelectedItem;
+            txtNombre.txtEntrada.Text = (miRow["CLI_NOMBRE"].ToString());
+            txtTelefono.txtEntrada.Text = (miRow["CLI_TELEFONO"].ToString());
+            txtDireccion.txtEntrada.Text = (miRow["CLI_DIRECCION"].ToString());
+            txtCiudad.txtEntrada.Text = (miRow["CLI_CIUDAD"].ToString());
+            txtObservaciones.txtEntrada.Text = (miRow["CLI_OBSERV"].ToString());
+        }
     }
 }

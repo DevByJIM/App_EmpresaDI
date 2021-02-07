@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Capa_Logica
 {
@@ -34,25 +32,40 @@ namespace Capa_Logica
         /// <summary>
         /// Clase que inserta un nuevo cliente en la tabla CLIENTES.
         /// </summary>
-        static Boolean addCliente(Cliente cliente)
+        public static Boolean addCliente(Cliente cliente)
         {
-            var cmd = new SqlCommand():
+            string MISQL = String.Format("INSERT INTO TBCLIENTES ("
+                + " CLI_NOMBRE, CLI_TELEFONO, CLI_DIRECCION, CLI_CIUDAD, CLI_OBSERV)"
+                + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
+                cliente.Nombre, cliente.Telefono, cliente.Direccion, cliente.Ciudad, cliente.Observaciones);
+
+            if(miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+
             return false;
         }
 
         /// <summary>
         /// Clase que elimina un cliente de la tabla CLIENTES.
         /// </summary>
-        static Boolean delCliente(Cliente cliente)
+        public static Boolean delCliente(Cliente cliente)
         {
+            string MISQL = "DELETE FROM TBCLIENTES  WHERE CLI_CODIGO = " + cliente.Id;
+
+            if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+
             return false;
         }
 
         /// <summary>
         /// Clase que actualiza un cliente de la tabla CLIENTES.
         /// </summary>
-        static Boolean updateCliente(Cliente cliente)
+        public static Boolean updateCliente(Cliente cliente)
         {
+            string MISQL = String.Format("UPDATE TBCLIENTES  SET CLI_NOMBRE = '{0}', CLI_TELEFONO = '{1}',"
+                + " CLI_DIRECCION = '{2}', CLI_CIUDAD = '{3}', CLI_OBSERV = '{4}' WHERE CLI_CODIGO = '{5}'",
+                cliente.Nombre, cliente.Telefono, cliente.Direccion, cliente.Ciudad, cliente.Observaciones, cliente.Id);
+
+            if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
             return false;
         }
     }

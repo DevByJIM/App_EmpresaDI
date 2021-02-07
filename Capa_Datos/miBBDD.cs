@@ -136,7 +136,7 @@ namespace Capa_Datos
 
         private static String CREATEDB = "CREATE DATABASE IF NOT EXISTS EMPRESADI";
         private static String USEDDBB = "USE EMPRESADI";
-        private static String CREATEtbCLIENTES = "CREATE TABLE IF NOT EXISTS CLIENTES ("
+        private static String CREATEtbCLIENTES = "CREATE TABLE IF NOT EXISTS TBCLIENTES ("
             + " CLI_CODIGO INT(11) PRIMARY KEY AUTO_INCREMENT,"
             + " CLI_NOMBRE VARCHAR(128)UNIQUE NOT NULL,"
             + " CLI_TELEFONO VARCHAR(16),"
@@ -144,7 +144,7 @@ namespace Capa_Datos
             + " CLI_CIUDAD VARCHAR(64),"
             + " CLI_OBSERV VARCHAR(512));";
 
-        private static String CREATEtbPEDIDOS = "CREATE TABLE IF NOT EXISTS PEDIDOS ("
+        private static String CREATEtbPEDIDOS = "CREATE TABLE IF NOT EXISTS TBPEDIDOS ("
             + " PED_CODIGO INT(11) PRIMARY KEY AUTO_INCREMENT,"
             + "	PED_NUMPEDIDO INT(16) NOT NULL,"
             + " PED_CODCLIENTE INT(11),"
@@ -152,11 +152,11 @@ namespace Capa_Datos
             + " PED_ESTADO INT(4),"
             + "	PED_OBSERV VARCHAR(512),"
             + " CONSTRAINT PEDIDO_FK_CLIENTE FOREIGN KEY(PED_CODCLIENTE)"
-            + " REFERENCES CLIENTES(CLI_CODIGO)"
+            + " REFERENCES TBCLIENTES(CLI_CODIGO)"
             + " ON UPDATE CASCADE"
             + "	ON DELETE SET NULL);";
 
-        private static String CREATEtbLINPEDIDOS = "CREATE TABLE IF NOT EXISTS LINEAS_PEDIDO("
+        private static String CREATEtbLINPEDIDOS = "CREATE TABLE IF NOT EXISTS TBLINEAS_PEDIDO("
             + " LIN_CODIGO INT(11) PRIMARY KEY  AUTO_INCREMENT, "
             + "	LIN_CODPEDIDO INT(11) NOT NULL,"
             + " LIN_CODPRODUCTO INT(11) NOT NULL,"
@@ -164,15 +164,15 @@ namespace Capa_Datos
             + " LIN_PRECIO FLOAT NOT NULL,"
             + "	LIN_NUMLIN INT(4) NOT NULL,"
             + " CONSTRAINT LINEAS_FK_PEDIDO FOREIGN KEY(LIN_CODPEDIDO)"
-            + " REFERENCES PEDIDOS(PED_CODIGO)"
+            + " REFERENCES TBPEDIDOS(PED_CODIGO)"
             + "	ON UPDATE CASCADE"
             + "	ON DELETE CASCADE,"
             + " CONSTRAINT LINEAS_FK_PRODUCTO FOREIGN KEY(LIN_CODPRODUCTO)"
-            + " REFERENCES PRODUCTOS(PRD_CODIGO)"
+            + " REFERENCES TBPRODUCTOS(PRD_CODIGO)"
             + " ON UPDATE CASCADE"
             + " ON DELETE NO ACTION);";
 
-        private static String CREATEtbPRODUCTO = "CREATE TABLE IF NOT EXISTS PRODUCTOS("
+        private static String CREATEtbPRODUCTO = "CREATE TABLE IF NOT EXISTS TBPRODUCTOS("
             + " PRD_CODIGO INT(11) PRIMARY KEY  AUTO_INCREMENT,"
             + "	PRD_NSERIE VARCHAR(16) NOT NULL,"
             + " PRD_DENOMINACION VARCHAR(256) NOT NULL,"
