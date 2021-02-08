@@ -30,19 +30,7 @@ namespace Capa_Logica
             this.observaciones = observaciones;
         }
         
-        public DataTable Damelistado()
-        {
-            try
-            {
-                return miBBDD.ConsultaSQL("SELECT * FROM CLIENTES");
-            }
-            catch (Exception ex)
-            {
-                new MensajeBox("ERROR LISTADO CLIENTE", ex);
-                return null;
-            }
-
-        }
+      
 
         #region PROPIEDADES
         public string Id

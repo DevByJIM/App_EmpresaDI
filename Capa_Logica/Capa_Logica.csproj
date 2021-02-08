@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="LibreriasByJIM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\ByJIM\LibreriasByJIM.dll</HintPath>
+      <HintPath>..\..\LibreriasByJIM\LibreriasByJIM\bin\Debug\LibreriasByJIM.dll</HintPath>
     </Reference>
     <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

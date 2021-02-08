@@ -16,7 +16,7 @@ namespace App_EmpresaDI.Paginas
         public pg_DeClientes()
         {
             InitializeComponent();
-            CargamosDatos();             
+            //CargamosDatos();             
         }
 
         private void CargamosDatos()
@@ -58,22 +58,22 @@ namespace App_EmpresaDI.Paginas
 
         private Boolean ComprobamosDatos()
         {
-            if (txtNombre.Frase == "" || txtNombre.Frase == txtNombre.Hint)
+            if (txtNombre.Texto == "" || txtNombre.Texto == txtNombre.Hint)
             {
                 new MensajeBox("EL NOMBRE DEL CLIENTE NO PUEDE ESTAR VACIO");
                 return false;
             }
-            else if (txtTelefono.Frase == "" || txtTelefono.Frase == txtTelefono.Hint)
+            else if (txtTelefono.Texto == "" || txtTelefono.Texto == txtTelefono.Hint)
             {
                 new MensajeBox("EL TELEFONO DEL CLIENTE NO PUEDE ESTAR VACIO");
                 return false;
             }
-            else if (txtDireccion.Frase == "" || txtDireccion.Frase == txtDireccion.Hint)
+            else if (txtDireccion.Texto == "" || txtDireccion.Texto == txtDireccion.Hint)
             {
                 new MensajeBox("LA DIRECCION DEL CLIENTE NO PUEDE ESTAR VACIO");
                 return false;
             }
-            else if (txtCiudad.Frase == "" || txtCiudad.Frase == txtCiudad.Hint)
+            else if (txtCiudad.Texto == "" || txtCiudad.Texto == txtCiudad.Hint)
             {
                 new MensajeBox("LA CIUDAD DEL CLIENTE NO PUEDE ESTAR VACIO");
                 return false;
@@ -84,13 +84,21 @@ namespace App_EmpresaDI.Paginas
         private void creamosCliente()
         {
             cliente = new Cliente();
-            cliente.Nombre = txtNombre.Frase;
-            cliente.Telefono = txtTelefono.Frase;
-            cliente.Direccion = txtDireccion.Frase;
-            cliente.Ciudad = txtCiudad.Frase;
-            cliente.Observaciones = txtObservaciones.Frase;
+            cliente.Nombre = txtNombre.Texto;
+            cliente.Telefono = txtTelefono.Texto;
+            cliente.Direccion = txtDireccion.Texto;
+            cliente.Ciudad = txtCiudad.Texto;
+            cliente.Observaciones = txtObservaciones.Texto;
         }
-
+        private void CargaInformacion(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DataRowView miRow = (DataRowView)dgv_Clientes.SelectedItem;
+            txtNombre.Texto = (miRow["CLI_NOMBRE"].ToString());
+            txtTelefono.Texto = (miRow["CLI_TELEFONO"].ToString());
+            txtDireccion.Texto = (miRow["CLI_DIRECCION"].ToString());
+            txtCiudad.Texto = (miRow["CLI_CIUDAD"].ToString());
+            txtObservaciones.Texto = (miRow["CLI_OBSERV"].ToString());
+        }
 
         #endregion
 
@@ -112,14 +120,6 @@ namespace App_EmpresaDI.Paginas
         }
         #endregion
 
-        private void CargaInformacion(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            DataRowView miRow = (DataRowView)dgv_Clientes.SelectedItem;
-            txtNombre.txtEntrada.Text = (miRow["CLI_NOMBRE"].ToString());
-            txtTelefono.txtEntrada.Text = (miRow["CLI_TELEFONO"].ToString());
-            txtDireccion.txtEntrada.Text = (miRow["CLI_DIRECCION"].ToString());
-            txtCiudad.txtEntrada.Text = (miRow["CLI_CIUDAD"].ToString());
-            txtObservaciones.txtEntrada.Text = (miRow["CLI_OBSERV"].ToString());
-        }
+
     }
 }

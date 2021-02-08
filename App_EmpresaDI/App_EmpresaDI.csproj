@@ -35,8 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibreriasByJIM">
-      <HintPath>..\..\..\..\..\..\ByJIM\LibreriasByJIM.dll</HintPath>
+    <Reference Include="LibreriasByJIM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LibreriasByJIM\LibreriasByJIM\bin\Debug\LibreriasByJIM.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

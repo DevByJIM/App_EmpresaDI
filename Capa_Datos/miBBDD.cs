@@ -52,7 +52,7 @@ namespace Capa_Datos
             catch (Exception ex)
             {
                 throw new Exception("ERROR AL CREAR LA BASE DE DATOS POR SQL. \n" + ex.Message);
-                return false;
+
             }
             finally
             {

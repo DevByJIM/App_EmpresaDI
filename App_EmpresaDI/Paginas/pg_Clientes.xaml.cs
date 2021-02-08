@@ -16,12 +16,12 @@ namespace App_EmpresaDI.Paginas
         public pg_Clientes()
         {
             InitializeComponent();
-            CargamosDatos();             
+            //CargamosDatos();             
         }
 
         private void CargamosDatos()
         {
-            DataTable dt = cliente.Damelistado();
+            DataTable dt = Tb_Clientes.listadoClientes();
 
             if (dt != null)
                 dgv_Clientes.ItemsSource = dt.DefaultView;          
