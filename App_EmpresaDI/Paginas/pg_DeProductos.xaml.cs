@@ -27,12 +27,12 @@ namespace App_EmpresaDI.Paginas
         public pg_DeProductos()
         {
             InitializeComponent();
-            //cargarDatos();
+            CargamosDatos();
         }
 
         private void CargamosDatos()
         {
-            DataTable dt = Tb_Clientes.listadoClientes();
+            DataTable dt = Tb_Productos.listadoProductos();
 
             if (dt != null)
                 dgv_Productos.ItemsSource = dt.DefaultView;
@@ -44,22 +44,28 @@ namespace App_EmpresaDI.Paginas
             {
                 switch (((Button)sender).Name)
                 {
-                    case "btnAdd":
+                    case "btn_Add":
                         creamosProducto();
                         if (Tb_Productos.addProducto(producto))
                             new MensajeBox("PRODUCTO INTRODUCIDO CON EXITO");
                         break;
-                    case "btnupdate":
+                    case "btn_Update":
                         creamosProducto();
                         if (Tb_Productos.updateProducto(producto))
                             new MensajeBox("PRODUCTO ACTUALIZADO CON EXITO");
                         break;
-                    case "btnDel":
-                        creamosProducto();
-                        if (Tb_Productos.delProducto(producto))
-                            new MensajeBox("PRODUCTO ELIMINADO CON EXITO");
-                        break;
+                    case "btn_Del":
+                        MessageBoxResult respuesta = new MensajeBox("ESTA OPERACION NO TIENE MARCHA ATRÁS.", BOTONES.ACEPTARCANCEL).Respuesta;
+                        if (respuesta == MessageBoxResult.OK)
+                        {
+                            creamosProducto();
+                            if (Tb_Productos.delProducto(producto))
+                                new MensajeBox("PRODUCTO ELIMINADO CON EXITO");
+                        }
+                            break;
+                        
                 }
+                CargamosDatos();
             }
         }
 
@@ -91,6 +97,7 @@ namespace App_EmpresaDI.Paginas
         private void creamosProducto()
         {
             producto = new Producto();
+            producto.Codigo = lbCodigo.Content==null? "0" : lbCodigo.Content.ToString();
             producto.NSerie = txtNSerie.Texto;
             producto.Descripcion = txtDescripcion.Texto;
             producto.Stock = Convert.ToInt32(txtStock.Texto);
@@ -100,8 +107,9 @@ namespace App_EmpresaDI.Paginas
         private void CargaInformacion(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DataRowView miRow = (DataRowView)dgv_Productos.SelectedItem;
+            lbCodigo.Content = (miRow["PRD_CODIGO"].ToString());
             txtNSerie.Texto = (miRow["PRD_NSERIE"].ToString());
-            txtDescripcion.Texto = (miRow["PRD_DESCRIPCION"].ToString());
+            txtDescripcion.Texto = (miRow["PRD_DENOMINACION"].ToString());
             txtStock.Texto = (miRow["PRD_STOCK"].ToString());
             txtPrecio.Texto = (miRow["PRD_PRECIO"].ToString());
             txtObservaciones.Texto = (miRow["PRD_OBSERV"].ToString());

@@ -1,4 +1,5 @@
 ﻿using Capa_Datos;
+using LibreriasByJIM.Controles_JIM;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,9 +26,9 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean siExisteProducto(Producto producto)
         {
-            DataTable dt = miBBDD.ConsultaSQL("SELECT * FROM TBPRODUCTOS WHERE PRD_CODIGO = " + producto.Codigo);
-            if (dt.Rows.Count > 0) return true;
-            return false;
+                DataTable dt = miBBDD.ConsultaSQL("SELECT * FROM TBPRODUCTOS WHERE PRD_CODIGO = " + producto.Codigo);
+                if (dt.Rows.Count > 0) return true;
+                return false;
         }
 
         /// <summary>
@@ -35,14 +36,23 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean addProducto(Producto producto)
         {
-            string MISQL = String.Format("INSERT INTO TBPRODUCTOS ("
-                    + " PRD_NSERIE, PRD_NOMBRE, PRD_DENOMINACION, PRD_STOCK, PRD_PRECIO, PRD_OBSERV)"
-                    + " VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')",
-                     producto.NSerie, producto.Nombre, producto.Descripcion, producto.Stock, producto.Precio, producto.Observaciones);
+            try
+            {
+                string MISQL = String.Format("INSERT INTO TBPRODUCTOS ("
+        + " PRD_NSERIE, PRD_DENOMINACION, PRD_STOCK, PRD_PRECIO, PRD_OBSERV)"
+        + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
+         producto.NSerie, producto.Descripcion, producto.Stock, producto.Precio, producto.Observaciones);
 
-            if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+                if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR AL AÑADIR PRODUCTO", ex);
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -50,11 +60,20 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean delProducto(Producto producto)
         {
+            try
+            {
             string MISQL = "DELETE FROM TBPRODUCTOS  WHERE PRD_CODIGO = " + producto.Codigo;
 
             if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
 
             return false;
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR AL ELIMINAR PRODUCTO", ex);
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -62,12 +81,21 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean updateProducto(Producto producto)
         {
-            string MISQL = String.Format("UPDATE TBPRODUCTOS  SET PRD_NSERIE = '{0}', PRD_DENOMINACION = '{1}',"
-                + " PRD_STOCK = '{2}', PRD_PRECIO = '{3}', PRD_OBSERV = '{4}' WHERE PRD_CODIGO = '{5}'",
-                producto.NSerie, producto.Descripcion, producto.Stock, producto.Precio, producto.Observaciones, producto.Codigo);
+            try
+            {
+                string MISQL = String.Format("UPDATE TBPRODUCTOS  SET PRD_NSERIE = '{0}', PRD_DENOMINACION = '{1}',"
+    + " PRD_STOCK = '{2}', PRD_PRECIO = '{3}', PRD_OBSERV = '{4}' WHERE PRD_CODIGO = '{5}'",
+    producto.NSerie, producto.Descripcion, producto.Stock, producto.Precio, producto.Observaciones, producto.Codigo);
 
-            if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
-            return false;
+                if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR AL ACTUALIZAR PRODUCTO", ex);
+                return false;
+            }
+
         }
     }
 }

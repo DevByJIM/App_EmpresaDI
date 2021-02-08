@@ -1,4 +1,5 @@
 ﻿using Capa_Datos;
+using LibreriasByJIM.Controles_JIM;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -34,14 +35,23 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean addCliente(Cliente cliente)
         {
-            string MISQL = String.Format("INSERT INTO TBCLIENTES ("
-                + " CLI_NOMBRE, CLI_TELEFONO, CLI_DIRECCION, CLI_CIUDAD, CLI_OBSERV)"
-                + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
-                cliente.Nombre, cliente.Telefono, cliente.Direccion, cliente.Ciudad, cliente.Observaciones);
+            try
+            {
+                string MISQL = String.Format("INSERT INTO TBCLIENTES ("
+    + " CLI_NOMBRE, CLI_TELEFONO, CLI_DIRECCION, CLI_CIUDAD, CLI_OBSERV)"
+    + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
+    cliente.Nombre, cliente.Telefono, cliente.Direccion, cliente.Ciudad, cliente.Observaciones);
 
-            if(miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+                if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR AL AÑADIR CLIENTE", ex);
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -49,11 +59,20 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean delCliente(Cliente cliente)
         {
-            string MISQL = "DELETE FROM TBCLIENTES  WHERE CLI_CODIGO = " + cliente.Id;
+            try
+            {
+                string MISQL = "DELETE FROM TBCLIENTES  WHERE CLI_CODIGO = " + cliente.Id;
 
-            if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+                if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
 
-            return false;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR AL ELIMINAR CLIENTE", ex);
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -61,12 +80,21 @@ namespace Capa_Logica
         /// </summary>
         public static Boolean updateCliente(Cliente cliente)
         {
-            string MISQL = String.Format("UPDATE TBCLIENTES  SET CLI_NOMBRE = '{0}', CLI_TELEFONO = '{1}',"
-                + " CLI_DIRECCION = '{2}', CLI_CIUDAD = '{3}', CLI_OBSERV = '{4}' WHERE CLI_CODIGO = '{5}'",
-                cliente.Nombre, cliente.Telefono, cliente.Direccion, cliente.Ciudad, cliente.Observaciones, cliente.Id);
+            try
+            {
+                string MISQL = String.Format("UPDATE TBCLIENTES  SET CLI_NOMBRE = '{0}', CLI_TELEFONO = '{1}',"
+    + " CLI_DIRECCION = '{2}', CLI_CIUDAD = '{3}', CLI_OBSERV = '{4}' WHERE CLI_CODIGO = '{5}'",
+    cliente.Nombre, cliente.Telefono, cliente.Direccion, cliente.Ciudad, cliente.Observaciones, cliente.Id);
 
-            if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
-            return false;
+                if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                new MensajeBox("ERROR AL ACTUALIZAR CLIENTE", ex);
+                return false;
+            }
+
         }
     }
 }

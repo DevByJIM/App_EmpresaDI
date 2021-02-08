@@ -16,7 +16,7 @@ namespace App_EmpresaDI.Paginas
         public pg_DeClientes()
         {
             InitializeComponent();
-            //CargamosDatos();             
+            CargamosDatos();             
         }
 
         private void CargamosDatos()
@@ -44,9 +44,15 @@ namespace App_EmpresaDI.Paginas
                             new MensajeBox("CLIENTE ACTUALIZADO CON EXITO");
                         break;
                     case "btn_Del":
-                        creamosCliente();
-                        if (Tb_Clientes.delCliente(cliente))
-                            new MensajeBox("CLIENTE ELIMINADO CON EXITO");
+                        MessageBoxResult respuesta = new MensajeBox("ESTA OPERACION NO TIENE MARCHA ATRÁS.", BOTONES.ACEPTARCANCEL).Respuesta;
+                        if (respuesta == MessageBoxResult.OK)
+                        {
+                            creamosCliente();
+                            if (Tb_Clientes.delCliente(cliente))
+                                new MensajeBox("CLIENTE ELIMINADO CON EXITO");
+                            LimpiarCampos();
+                        }
+
                         break;
                 }
                 CargamosDatos();
@@ -84,20 +90,33 @@ namespace App_EmpresaDI.Paginas
         private void creamosCliente()
         {
             cliente = new Cliente();
+            cliente.Id = lbId.Content==null? "0" : lbId.Content.ToString();
             cliente.Nombre = txtNombre.Texto;
             cliente.Telefono = txtTelefono.Texto;
             cliente.Direccion = txtDireccion.Texto;
             cliente.Ciudad = txtCiudad.Texto;
             cliente.Observaciones = txtObservaciones.Texto;
         }
+
         private void CargaInformacion(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DataRowView miRow = (DataRowView)dgv_Clientes.SelectedItem;
+            lbId.Content = (miRow["CLI_CODIGO"].ToString());
             txtNombre.Texto = (miRow["CLI_NOMBRE"].ToString());
             txtTelefono.Texto = (miRow["CLI_TELEFONO"].ToString());
             txtDireccion.Texto = (miRow["CLI_DIRECCION"].ToString());
             txtCiudad.Texto = (miRow["CLI_CIUDAD"].ToString());
             txtObservaciones.Texto = (miRow["CLI_OBSERV"].ToString());
+        }
+
+        private void LimpiarCampos()
+        {
+            lbId.Content = "";
+            txtNombre.Texto = "";
+            txtTelefono.Texto = "";
+            txtDireccion.Texto = "";
+            txtCiudad.Texto = "";
+            txtObservaciones.Texto = "";
         }
 
         #endregion

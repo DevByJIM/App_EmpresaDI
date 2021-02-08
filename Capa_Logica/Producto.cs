@@ -15,7 +15,7 @@ namespace Capa_Logica
         private Double precio;
         private String observaciones;
 
-        public Producto() { };
+        public Producto() { }
         public Producto(string codigo, string nserie, string descripcion, int stock, double precio, string observaciones)
         {
             this.codigo = codigo;
