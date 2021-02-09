@@ -23,6 +23,12 @@ namespace App_EmpresaDI.Paginas
         public pg_Pedidos()
         {
             InitializeComponent();
+            CargarDatos();
+        }
+
+        private void CargarDatos()
+        {
+
         }
 
         private void AjusteFuentes(object sender, SizeChangedEventArgs e)

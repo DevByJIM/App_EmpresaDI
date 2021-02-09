@@ -123,10 +123,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Paginas\pg_Clientes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Paginas\pg_Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -139,17 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Paginas\pg_Productos.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Paginas\pg_DeClientes.xaml.cs">
       <DependentUpon>pg_DeClientes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paginas\pg_Clientes.xaml.cs">
-      <DependentUpon>pg_Clientes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Paginas\pg_Home.xaml.cs">
       <DependentUpon>pg_Home.xaml</DependentUpon>
@@ -159,9 +148,6 @@
     </Compile>
     <Compile Include="Paginas\pg_DeProductos.xaml.cs">
       <DependentUpon>pg_DeProductos.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Paginas\pg_Productos.xaml.cs">
-      <DependentUpon>pg_Productos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

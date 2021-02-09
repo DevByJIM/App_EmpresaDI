@@ -22,7 +22,7 @@ namespace App_EmpresaDI.Controles
     {
         private ImageSource icono;
 
-        private String frase;
+        private String texto;
 
         private String hint;
         private Boolean esNumero;
@@ -36,7 +36,7 @@ namespace App_EmpresaDI.Controles
         private void CargoControl(object sender, RoutedEventArgs e)
         {
             txtEntrada.Text = Hint;
-            Frase = txtEntrada.Text;
+            Texto = txtEntrada.Text;
             txtEntrada.Foreground = Brushes.LightGray;
         }
 
@@ -91,16 +91,16 @@ namespace App_EmpresaDI.Controles
             }
         }
 
-        public string Frase
+        public string Texto
         {
             get
             {
-                return frase;
+                return texto;
             }
 
             set
             {
-                frase = value;
+                texto = value;
             }
         }
 
