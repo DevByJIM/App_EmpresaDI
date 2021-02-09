@@ -52,9 +52,11 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="myBBDD.cs" />
+    <Compile Include="Pedido.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tb_Clientes.cs" />
+    <Compile Include="Tb_Pedidos.cs" />
     <Compile Include="Tb_Productos.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>
