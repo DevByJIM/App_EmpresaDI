@@ -99,8 +99,8 @@
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
             <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotones"/>
-            <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
-            <Button x:Name="btnDel" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotones"/>
+            <Button x:Name="btnDel" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotones"/>
         </Grid>
 
 

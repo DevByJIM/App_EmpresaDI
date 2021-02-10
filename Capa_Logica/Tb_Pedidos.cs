@@ -84,10 +84,9 @@ namespace Capa_Logica
         {
             try
             {
-                string MISQL = String.Format("UPDATE TBPEDIDOS  SET "
-                     + " PED_NUMPEDIDO, PED_CODCLIENTE, PED_FECHA, PED_ESTADO, PED_OBSERV)"
-                     + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
-                         pedido.NumPedido, pedido.CodCliente, pedido.Fecha, pedido.Estado, pedido.Observaciones);
+                string MISQL = String.Format("UPDATE TBPEDIDOS SET "
+                     + " PED_NUMPEDIDO='{0}', PED_CODCLIENTE='{1}', PED_FECHA='{2}', PED_ESTADO='{3}', PED_OBSERV='{4}' WHERE PED_CODIGO= {5}",
+                     +   pedido.NumPedido, pedido.CodCliente, pedido.Fecha.ToString("yyyy/MM/dd"), pedido.Estado, pedido.Observaciones, pedido.Codigo);
                 if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
                 return false;
             }

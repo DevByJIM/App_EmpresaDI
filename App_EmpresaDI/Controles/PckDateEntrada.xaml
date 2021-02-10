@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
 
         <Image x:Name="img_Icono" Grid.Column="0"  Margin="5,5,0,5" Source="{Binding Icono}" VerticalAlignment="Top" MaxHeight="50"/>
-        <DatePicker x:Name="txtEntrada" Grid.Column="1" Text="{Binding fecha,Mode=TwoWay}"
+        <DatePicker x:Name="txtEntrada" Grid.Column="1" Text="{Binding Fecha,Mode=TwoWay}"
                  LostFocus="PierdeFoco" GotFocus="CojoFoco" VerticalContentAlignment="Stretch" SnapsToDevicePixels="True" BorderBrush="{x:Null}" SelectedDateChanged="txtEntrada_SelectedDateChanged"
                     />
     </Grid>

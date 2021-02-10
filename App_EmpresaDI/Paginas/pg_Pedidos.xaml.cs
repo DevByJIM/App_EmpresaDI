@@ -31,14 +31,14 @@ namespace App_EmpresaDI.Paginas
             {
                 cbCliente.AddItems(miRow.ItemArray[1].ToString());
             }
-            cbCliente.SelectFirst();
+            cbCliente.SeleccionarItem(0);
             
 
             //cbEstado.AddItems("Selecciona Estado");
             cbEstado.AddItems("En espera");
             cbEstado.AddItems("En proceso");
             cbEstado.AddItems("Listo");
-            cbEstado.SelectFirst();
+            cbEstado.SeleccionarItem(0);
 
         }
 
@@ -47,7 +47,7 @@ namespace App_EmpresaDI.Paginas
         {
             dt = Tb_Pedidos.listadoPedidos();
             pedido = new Pedido();
-            Int32 filaActual = 0;
+            Int32 filaActual = -1;
             if (lbId.Content == null) lbId.Content = 0;
             for(int i = 0; i< dt.Rows.Count; i++)
             {
@@ -61,10 +61,10 @@ namespace App_EmpresaDI.Paginas
             switch (((Button)sender).Name)
             {
                 case "btnNextReg":
-                    filaActual = (filaActual == dt.Rows.Count)? filaActual : filaActual++;
+                    filaActual = (filaActual < dt.Rows.Count-1)? filaActual+1 : filaActual;
                     break;
                 case "btnPrevReg":
-                    filaActual = (filaActual == 0) ? filaActual : filaActual--;
+                    filaActual = (filaActual == 0) ? filaActual : filaActual-1;
                     break;
                 case "btnFirstReg":
                     filaActual=0;
@@ -76,9 +76,9 @@ namespace App_EmpresaDI.Paginas
 
             lbId.Content = dt.Rows[filaActual].ItemArray[0].ToString();
             txtCodPedido.Texto = dt.Rows[filaActual].ItemArray[1].ToString();
-            cbCliente.Texto = dt.Rows[filaActual].ItemArray[2].ToString();
+            cbCliente.SeleccionarItem(Tb_Clientes.damePoscionCliente(Convert.ToInt32(dt.Rows[filaActual].ItemArray[2])));
             txtFecha.Fecha = Convert.ToDateTime(dt.Rows[filaActual].ItemArray[3]);
-            cbEstado.Texto = dt.Rows[filaActual].ItemArray[4].ToString();
+            cbEstado.SeleccionarItem(Convert.ToInt16(dt.Rows[filaActual].ItemArray[4]));
             txtComentario.Texto = dt.Rows[filaActual].ItemArray[5].ToString();
         }
 
@@ -105,7 +105,6 @@ namespace App_EmpresaDI.Paginas
                         break;
 
                 }
-                CargarDatos();
             }
         }
 

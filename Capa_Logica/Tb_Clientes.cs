@@ -30,10 +30,29 @@ namespace Capa_Logica
             return false;
         }
 
+        /// <summary>
+        /// Clase que nos indica el id del cliente en la tabla CLIENTES.
+        /// </summary>
         public static Int32 dameCodigoCliente(String cliente)
         {
             DataTable dt = miBBDD.ConsultaSQL("SELECT CLI_CODIGO FROM TBCLIENTES WHERE CLI_NOMBRE = '" + cliente + "'");
             return Convert.ToInt32(dt.Rows[0].ItemArray[0]);
+
+        }
+
+        /// <summary>
+        /// Clase que nos indica la posición del cliente en la tabla CLIENTES.
+        /// </summary>
+        public static Int32 damePoscionCliente(Int32 cliente)
+        {
+            DataTable dt = miBBDD.ConsultaSQL("SELECT CLI_CODIGO FROM TBCLIENTES");
+            
+            for(int i=0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i].ItemArray[0].ToString() == cliente.ToString()) return i;
+            }
+
+            return 0;
 
         }
 

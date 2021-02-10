@@ -62,7 +62,7 @@
             </Grid.ColumnDefinitions>
 
             <jim:TextEntradaIco x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Icono="/Imagenes/user.ico" Hint="nombre cliente" Margin="5" TabIndex="1"/>
-            <jim:TextEntradaIco x:Name="txtTelefono" Grid.Row="0" Grid.Column="3" Icono="/Imagenes/phone.ico" Hint="teléfono cliente" EsNumero="True" Margin="5" TabIndex="2"/>
+            <jim:TextEntradaIco x:Name="txtTelefono" Grid.Row="0" Grid.Column="3" Icono="/Imagenes/phone.ico" Hint="teléfono cliente" Margin="5" TabIndex="2" EsNumero="True"/>
             <jim:TextEntradaIco x:Name="txtDireccion" Grid.Row="1" Grid.Column="1" Icono="/Imagenes/mail.ico" Hint="dirección cliente" Margin="5" TabIndex="3"/>
             <jim:TextEntradaIco x:Name="txtCiudad" Grid.Row="1" Grid.Column="3" Icono="/Imagenes/home.ico" Hint="ciudad cliente" Margin="5" TabIndex="4"/>
             <jim:TextEntradaIcoMulti x:Name="txtObservaciones" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Icono="/Imagenes/tag.ico" Hint="observaciones" Margin="5" TabIndex="5"/>

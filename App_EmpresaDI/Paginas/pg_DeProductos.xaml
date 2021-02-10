@@ -63,7 +63,7 @@
             </Grid.ColumnDefinitions>
 
             <jim:TextEntradaIco x:Name="txtNSerie" Grid.Row="0" Grid.Column="1" Icono="/Imagenes/package.ico" Margin="5" Hint="NºSerie producto"/>
-            <jim:TextEntradaIcoMulti x:Name="txtDescripcion" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Icono="/Imagenes/id_card.ico" Margin="5" Hint="descripción producto"/>
+            <jim:TextEntradaIcoMulti x:Name="txtDescripcion" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Icono="/Imagenes/id_card.ico" Margin="5" Hint="descripción producto" NumLineas="2"/>
             <jim:TextEntradaIco x:Name="txtStock" Grid.Row="0" Grid.Column="3" Icono="/Imagenes/database.ico" Hint="stock del producto" Margin="5" EsNumero="True"/>
             <jim:TextEntradaIco x:Name="txtPrecio" Grid.Row="1" Grid.Column="3" Icono="/Imagenes/euro.ico" Hint="precio del producto" Margin="5" EsNumero="True"/>
             <jim:TextEntradaIcoMulti x:Name="txtObservaciones" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" Icono="/Imagenes/tag.ico" Margin="5" Hint="observaciones"/>
