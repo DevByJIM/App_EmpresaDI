@@ -135,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Paginas\wid_LineaPedido.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Paginas\pg_DeClientes.xaml.cs">
@@ -148,6 +152,9 @@
     </Compile>
     <Compile Include="Paginas\pg_DeProductos.xaml.cs">
       <DependentUpon>pg_DeProductos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Paginas\wid_LineaPedido.xaml.cs">
+      <DependentUpon>wid_LineaPedido.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

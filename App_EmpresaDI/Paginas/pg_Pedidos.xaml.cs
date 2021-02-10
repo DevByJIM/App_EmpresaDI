@@ -103,10 +103,27 @@ namespace App_EmpresaDI.Paginas
                         if (Tb_Pedidos.delPedido(pedido))
                             new MensajeBox("PEDIDO ELIMINADO CON EXITO");
                         break;
+                    case "btnAddLinea":
+                        creamosLinea();
+                        if (Tb_Pedidos.addPedido(pedido))
+                            new MensajeBox("PEDIDO INTRODUCIDO CON EXITO");
+                        break;
+                    case "btnUpdateLinea":
+                        creamosLinea();
+                        if (Tb_Pedidos.updatePedido(pedido))
+                            new MensajeBox("PEDIDO ACTUALIZADO CON EXITO");
+                        break;
+                    case "btnDelLinea":
+                        creamosLinea();
+                        if (Tb_Pedidos.delPedido(pedido))
+                            new MensajeBox("PEDIDO ELIMINADO CON EXITO");
+                        break;
 
                 }
             }
         }
+
+
 
         #region TRABAJAMOS LA BBDD
 
@@ -154,6 +171,12 @@ namespace App_EmpresaDI.Paginas
             cbCliente.Texto = "";
             cbEstado.Texto = "";
         }
+
+        private void creamosLinea()
+        {
+            
+        }
+
 
         #endregion
 
