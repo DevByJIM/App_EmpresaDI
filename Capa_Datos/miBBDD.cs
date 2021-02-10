@@ -13,7 +13,7 @@ namespace Capa_Datos
     {
         //static SqlConnection Conexion = new SqlConnection("Data Source=SERVERACP;DataBase=Produccion ACP;;Integrated Security=True");
         static MySqlConnection Conexion =
-            new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;database=EmpresaDI;");
+            new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;password=root;database=EmpresaDI;");
 
 
         /// <summary>
@@ -21,30 +21,30 @@ namespace Capa_Datos
         /// </summary>
         public static Boolean CrearBaseDatos()
         {
-            MySqlConnection Conex = new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;");
+            MySqlConnection Conex = new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;password=root;");
             MySqlCommand cmd;
             try
             {
                 if (Conex.State == ConnectionState.Closed)
                     Conex.Open();
-                cmd = new MySqlCommand(CREATEDB, Conex);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
-                cmd = new MySqlCommand(USEDDBB, Conex);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
-                cmd = new MySqlCommand(CREATEtbCLIENTES, Conex);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
+                //cmd = new MySqlCommand(CREATEDB, Conex);
+                //cmd.CommandType = System.Data.CommandType.Text;
+                //cmd.ExecuteNonQuery();
+                //cmd = new MySqlCommand(USEDDBB, Conex);
+                //cmd.CommandType = System.Data.CommandType.Text;
+                //cmd.ExecuteNonQuery();
+                //cmd = new MySqlCommand(CREATEtbCLIENTES, Conex);
+                //cmd.CommandType = System.Data.CommandType.Text;
+                //cmd.ExecuteNonQuery();
                 cmd = new MySqlCommand(CREATEtbPEDIDOS, Conex);
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.ExecuteNonQuery();
-                cmd = new MySqlCommand(CREATEtbPRODUCTO, Conex);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
-                cmd = new MySqlCommand(CREATEtbLINPEDIDOS, Conex);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
+                //cmd = new MySqlCommand(CREATEtbPRODUCTO, Conex);
+                //cmd.CommandType = System.Data.CommandType.Text;
+                //cmd.ExecuteNonQuery();
+                //cmd = new MySqlCommand(CREATEtbLINPEDIDOS, Conex);
+                //cmd.CommandType = System.Data.CommandType.Text;
+                //cmd.ExecuteNonQuery();
 
                 return true;
 
@@ -149,7 +149,7 @@ namespace Capa_Datos
             + "	PED_NUMPEDIDO INT(16) NOT NULL,"
             + " PED_CODCLIENTE INT(11),"
             + "	PED_FECHA DATE NOT NULL,"
-            + " PED_ESTADO INT(4),"
+            + " PED_ESTADO VARCHAR(64),"
             + "	PED_OBSERV VARCHAR(512),"
             + " CONSTRAINT PEDIDO_FK_CLIENTE FOREIGN KEY(PED_CODCLIENTE)"
             + " REFERENCES TBCLIENTES(CLI_CODIGO)"

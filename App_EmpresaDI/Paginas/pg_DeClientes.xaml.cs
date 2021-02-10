@@ -132,6 +132,8 @@ namespace App_EmpresaDI.Paginas
             txtTelefono.FontSize = this.ActualHeight * factorFuente;
             txtObservaciones.FontSize = this.ActualHeight * 0.04;
 
+            dgv_Clientes.FontSize = this.ActualHeight * 0.03;
+
             foreach (Button btn in grid_Botones.Children)
             {
                 ((Button)btn).FontSize = this.ActualHeight * 0.03;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace App_EmpresaDI.Controles
     /// <summary>
     /// Lógica de interacción para PckDateEntrada.xaml
     /// </summary>
-    public partial class PckDateEntrada : UserControl
+    public partial class PckDateEntrada : UserControl, INotifyPropertyChanged
     {
         private ImageSource icono;
 
@@ -26,6 +27,10 @@ namespace App_EmpresaDI.Controles
 
         private String hint;
         private Boolean esNumero;
+
+        private DateTime fecha;
+
+
 
         public PckDateEntrada()
         {
@@ -78,6 +83,17 @@ namespace App_EmpresaDI.Controles
 
 
         #region PROPIEDADES DE LA CLASE
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged(string propertyName = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         public ImageSource Icono
         {
             get
@@ -88,6 +104,7 @@ namespace App_EmpresaDI.Controles
             set
             {
                 icono = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -127,10 +144,26 @@ namespace App_EmpresaDI.Controles
             set
             {
                 esNumero = value;
+                NotifyPropertyChanged();
             }
         }
 
-        #endregion
+        public DateTime Fecha
+        {
+            get => fecha;
+            set
+            {
+                fecha = value;
+                NotifyPropertyChanged();
+            }
 
+            #endregion
+
+        }
+
+        private void txtEntrada_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            fecha = txtEntrada.DisplayDate;
+        }
     }
 }

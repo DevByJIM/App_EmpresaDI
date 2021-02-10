@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:jim="clr-namespace:App_EmpresaDI.Controles"
+      xmlns:jim="clr-namespace:LibreriasByJIM.Controles_JIM;assembly=LibreriasByJIM"
+      xmlns:ctl ="clr-namespace:App_EmpresaDI.Controles"
       xmlns:local="clr-namespace:App_EmpresaDI.Paginas"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -56,11 +57,11 @@
 
                 <Label x:Name="lbTituloCabecera" Content="CABECERA PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" Foreground="#FC308CCB"/>
 
-                <jim:TextEntrada x:Name="txt_CodPedido" Grid.Row="1" Grid.Column="0" Icono="/Imagenes/id_card.ico" Hint="codigo pedido"/>
-                <jim:CboxEntrada x:Name="txt_Cliente" Grid.Row="1" Grid.Column="2" Icono="/Imagenes/user.ico" Hint="nombre cliente"/>
-                <jim:PckDateEntrada x:Name="txt_Fecha" Grid.Row="2" Grid.Column="0" Icono="/Imagenes/calendar.ico" Hint="fecha pedido"/>
-                <jim:CboxEntrada x:Name="txt_Estado" Grid.Row="3" Grid.Column="0" Icono="/Imagenes/estado.ico" Hint="estado pedido"/>
-                <jim:TextEntradaWrap x:Name="txt_Comentario" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Icono="/Imagenes/pencil.ico" Hint="observaciones"/>
+                <jim:TextEntradaIco x:Name="txtCodPedido" Grid.Row="1" Grid.Column="0" Icono="/Imagenes/id_card.ico" Hint="codigo pedido" Margin="5" EsNumero="True"/>
+                <jim:CbEntradaIco x:Name="cbCliente" Grid.Row="1" Grid.Column="2" Icono="/Imagenes/user.ico" Hint="nombre cliente" Margin="5"/>
+                <ctl:PckDateEntrada x:Name="txtFecha" Grid.Row="2" Grid.Column="0" Icono="/Imagenes/calendar.ico" Hint="fecha pedido"/>
+                <jim:CbEntradaIco x:Name="cbEstado" Grid.Row="3" Grid.Column="0" Icono="/Imagenes/estado.ico" Hint="estado pedido" Margin="5"/>
+                <jim:TextEntradaIcoMulti x:Name="txtComentario" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" Icono="/Imagenes/pencil.ico" Hint="observaciones" Margin="5"/>
 
                 <Grid x:Name="grid_Controles" Grid.Row="4" Grid.ColumnSpan="3" Margin="10,10,10,0">
                     <Grid.ColumnDefinitions>
@@ -72,19 +73,20 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="btnFirstReg" Grid.Column="1" Style="{StaticResource BotonAzulRojo}"  Margin="3">
+                    <Button x:Name="btnFirstReg" Grid.Column="1" Style="{StaticResource BotonAzulRojo}"  Margin="3" Click="TrabajoConLaTabla">
                         <Image Source="/Imagenes/Player_Prev.png" Margin="3"/>
                     </Button>
-                    <Button x:Name="btnPrevReg" Grid.Column="2" Style="{StaticResource BotonAzulRojo}" Margin="3">
+                    <Button x:Name="btnPrevReg" Grid.Column="2" Style="{StaticResource BotonAzulRojo}" Margin="3" Click="TrabajoConLaTabla">
                         <Image Source="/Imagenes/Player_Rew.png" Margin="3"/>
                     </Button>
-                    <Button x:Name="btnNextReg" Grid.Column="3" Style="{StaticResource BotonAzulRojo}" Margin="3">
+                    <Button x:Name="btnNextReg" Grid.Column="3" Style="{StaticResource BotonAzulRojo}" Margin="3" Click="TrabajoConLaTabla">
                         <Image Source="/Imagenes/Player_Fwd.png" Margin="3"/>
                     </Button>
-                    <Button x:Name="btnLastReg" Grid.Column="4" Style="{StaticResource BotonAzulRojo}" Margin="3">
+                    <Button x:Name="btnLastReg" Grid.Column="4" Style="{StaticResource BotonAzulRojo}" Margin="3" Click="TrabajoConLaTabla">
                         <Image Source="/Imagenes/Player_Next.png" Margin="3"/>
                     </Button>
                 </Grid>
+                <Label x:Name="lbId" Grid.Column="1" Grid.Row="1" />
             </Grid>
         </Border>
 
@@ -96,7 +98,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotones"/>
             <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
             <Button x:Name="btnDel" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
         </Grid>

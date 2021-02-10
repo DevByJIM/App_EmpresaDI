@@ -30,6 +30,13 @@ namespace Capa_Logica
             return false;
         }
 
+        public static Int32 dameCodigoCliente(String cliente)
+        {
+            DataTable dt = miBBDD.ConsultaSQL("SELECT CLI_CODIGO FROM TBCLIENTES WHERE CLI_NOMBRE = '" + cliente + "'");
+            return Convert.ToInt32(dt.Rows[0].ItemArray[0]);
+
+        }
+
         /// <summary>
         /// Clase que inserta un nuevo cliente en la tabla CLIENTES.
         /// </summary>

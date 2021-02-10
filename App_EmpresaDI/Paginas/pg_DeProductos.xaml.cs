@@ -104,6 +104,7 @@ namespace App_EmpresaDI.Paginas
             producto.Precio = Convert.ToDouble(txtPrecio.Texto);
             producto.Observaciones = txtObservaciones.Texto;
         }
+        
         private void CargaInformacion(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DataRowView miRow = (DataRowView)dgv_Productos.SelectedItem;
@@ -125,6 +126,8 @@ namespace App_EmpresaDI.Paginas
             txtStock.FontSize = this.ActualHeight * factorFuente;
             txtPrecio.FontSize = this.ActualHeight * factorFuente;
             txtObservaciones.FontSize = this.ActualHeight * 0.04;
+
+            dgv_Productos.FontSize = this.ActualHeight * 0.03;
 
             foreach (Button btn in grid_Botones.Children)
             {
