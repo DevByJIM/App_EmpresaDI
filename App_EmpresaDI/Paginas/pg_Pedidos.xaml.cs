@@ -18,8 +18,8 @@ namespace App_EmpresaDI.Paginas
         public pg_Pedidos()
         {
             InitializeComponent();
-            CargarDatos();
-            cbCliente.SelectFirst();
+            //CargarDatos();
+            //cbCliente.SelectFirst();
         }
 
 
@@ -80,6 +80,12 @@ namespace App_EmpresaDI.Paginas
             txtFecha.Fecha = Convert.ToDateTime(dt.Rows[filaActual].ItemArray[3]);
             cbEstado.SeleccionarItem(Convert.ToInt16(dt.Rows[filaActual].ItemArray[4]));
             txtComentario.Texto = dt.Rows[filaActual].ItemArray[5].ToString();
+            cargarLineasPedido();
+        }
+
+        private void cargarLineasPedido()
+        {
+            dgv_Lineas.ItemsSource = Tb_Lineas.listadoLineas(Convert.ToInt32(txtCodPedido.Texto)).DefaultView;
         }
 
         private void TrabajoBotones(object sender, RoutedEventArgs e)
@@ -103,27 +109,37 @@ namespace App_EmpresaDI.Paginas
                         if (Tb_Pedidos.delPedido(pedido))
                             new MensajeBox("PEDIDO ELIMINADO CON EXITO");
                         break;
+                   
+                }
+            }
+        }
+
+        private void TrabajoBotonesLineas(object sender, RoutedEventArgs e)
+        {
+            if (txtCodPedido.Texto!=null)
+            {
+                switch (((Button)sender).Name)
+                {
                     case "btnAddLinea":
                         creamosLinea();
-                        if (Tb_Pedidos.addPedido(pedido))
-                            new MensajeBox("PEDIDO INTRODUCIDO CON EXITO");
+                        new wid_LineaPedido().ShowDialog();
+                        //if (Tb_Pedidos.addPedido(pedido))
+                        //    new MensajeBox("PEDIDO INTRODUCIDO CON EXITO");
                         break;
                     case "btnUpdateLinea":
                         creamosLinea();
-                        if (Tb_Pedidos.updatePedido(pedido))
-                            new MensajeBox("PEDIDO ACTUALIZADO CON EXITO");
+                        //if (Tb_Pedidos.updatePedido(pedido))
+                        //    new MensajeBox("PEDIDO ACTUALIZADO CON EXITO");
                         break;
                     case "btnDelLinea":
                         creamosLinea();
-                        if (Tb_Pedidos.delPedido(pedido))
-                            new MensajeBox("PEDIDO ELIMINADO CON EXITO");
+                        //if (Tb_Pedidos.delPedido(pedido))
+                        //    new MensajeBox("PEDIDO ELIMINADO CON EXITO");
                         break;
 
                 }
             }
         }
-
-
 
         #region TRABAJAMOS LA BBDD
 

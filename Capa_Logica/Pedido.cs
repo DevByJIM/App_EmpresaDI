@@ -15,25 +15,98 @@ namespace Capa_Logica
         private Int32 estado;
         private String observaciones;
 
+        public int Codigo
+        {
+            get
+            {
+                return codigo;
+            }
+
+            set
+            {
+                codigo = value;
+            }
+        }
+
+        public int NumPedido
+        {
+            get
+            {
+                return numPedido;
+            }
+
+            set
+            {
+                numPedido = value;
+            }
+        }
+
+        public int CodCliente
+        {
+            get
+            {
+                return codCliente;
+            }
+
+            set
+            {
+                codCliente = value;
+            }
+        }
+
+        public DateTime Fecha
+        {
+            get
+            {
+                return fecha;
+            }
+
+            set
+            {
+                fecha = value;
+            }
+        }
+
+        public int Estado
+        {
+            get
+            {
+                return estado;
+            }
+
+            set
+            {
+                estado = value;
+            }
+        }
+
+        public string Observaciones
+        {
+            get
+            {
+                return observaciones;
+            }
+
+            set
+            {
+                observaciones = value;
+            }
+        }
+
         public Pedido()
         {
         }
 
         public Pedido(int codigo, int numPedido, int codCliente, DateTime fecha, Int32 estado, string observaciones)
         {
-            this.codigo = codigo;
-            this.numPedido = numPedido;
-            this.codCliente = codCliente;
-            this.fecha = fecha;
-            this.estado = estado;
-            this.observaciones = observaciones;
+            this.Codigo = codigo;
+            this.NumPedido = numPedido;
+            this.CodCliente = codCliente;
+            this.Fecha = fecha;
+            this.Estado = estado;
+            this.Observaciones = observaciones;
         }
 
-        public int Codigo { get => codigo; set => codigo = value; }
-        public int NumPedido { get => numPedido; set => numPedido = value; }
-        public int CodCliente { get => codCliente; set => codCliente = value; }
-        public DateTime Fecha { get => fecha; set => fecha = value; }
-        public Int32 Estado { get => estado; set => estado = value; }
-        public string Observaciones { get => observaciones; set => observaciones = value; }
+
     }
 }

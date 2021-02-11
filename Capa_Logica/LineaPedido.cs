@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa_Logica
 {
-    class LineaPedido
+    public class LineaPedido
     {
         private int id;
         private int codpedido;
@@ -15,11 +15,82 @@ namespace Capa_Logica
         private double precio;
         private int numLin;
 
-        public int Id { get => id; set => id = value; }
-        public int Codpedido { get => codpedido; set => codpedido = value; }
-        public int CodProducto { get => codProducto; set => codProducto = value; }
-        public int Cantidad { get => cantidad; set => cantidad = value; }
-        public double Precio { get => precio; set => precio = value; }
-        public int NumLin { get => numLin; set => numLin = value; }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public int Codpedido
+        {
+            get
+            {
+                return codpedido;
+            }
+
+            set
+            {
+                codpedido = value;
+            }
+        }
+
+        public int CodProducto
+        {
+            get
+            {
+                return codProducto;
+            }
+
+            set
+            {
+                codProducto = value;
+            }
+        }
+
+        public int Cantidad
+        {
+            get
+            {
+                return cantidad;
+            }
+
+            set
+            {
+                cantidad = value;
+            }
+        }
+
+        public double Precio
+        {
+            get
+            {
+                return precio;
+            }
+
+            set
+            {
+                precio = value;
+            }
+        }
+
+        public int NumLin
+        {
+            get
+            {
+                return numLin;
+            }
+
+            set
+            {
+                numLin = value;
+            }
+        }
     }
 }

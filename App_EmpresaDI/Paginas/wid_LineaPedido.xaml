@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App_EmpresaDI.Paginas"
-        mc:Ignorable="d"
-        Title="wid_LineaPedido" Height="120" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        mc:Ignorable="d" 
+        Title="AÑADIR DATOS DE LA LINEA DE PEDIDO" Height="120" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.4*"/>
@@ -22,15 +23,15 @@
             <ColumnDefinition Width="0.3*"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="lbNumLinea" Content="NºLIN"  Grid.Row="0" Grid.Column="1" Style="{StaticResource LabelCantidades}"/>
-        <Label x:Name="lbProducto" Content="PRODUCTOS" Grid.Row="0" Grid.Column="2" Margin="3"  Style="{StaticResource LabelCantidades}"/>
-        <Label x:Name="lbCantidad" Content="CANTIDAD" Grid.Row="0" Grid.Column="3" Margin="3"  Style="{StaticResource LabelCantidades}"/>
-        <Label x:Name="lbPrecio" Content="PRECIO"  Grid.Row="0" Grid.Column="4" Margin="3" Style="{StaticResource LabelCantidades}"/>
+        <Label x:Name="lbNumLinea" Content="NºLIN"  Grid.Row="0" Grid.Column="1" Style="{StaticResource  lbSumar}"/>
+        <Label x:Name="lbProducto" Content="PRODUCTOS" Grid.Row="0" Grid.Column="2" Margin="3"  Style="{StaticResource lbSumar}"/>
+        <Label x:Name="lbCantidad" Content="CANTIDAD" Grid.Row="0" Grid.Column="3" Margin="3"  Style="{StaticResource lbSumar}"/>
+        <Label x:Name="lbPrecio" Content="PRECIO"  Grid.Row="0" Grid.Column="4" Margin="3" Style="{StaticResource lbSumar}"/>
 
-        <TextBox x:Name="txtNumLinea"  Grid.Row="1" Grid.Column="1" Margin="3"/>
-        <ComboBox x:Name="cbProductos" Grid.Row="1" Grid.Column="2" Margin="3"/>
-        <TextBox x:Name="txtCantidad"  Grid.Row="1" Grid.Column="3" Margin="3"/>
-        <Label x:Name="txtPrecio"  Grid.Row="1" Grid.Column="4" Margin="3"/>
-        <Button x:Name="btnAceptar" Grid.Row="1" Grid.Column="5" Margin="3"/>
+        <TextBox x:Name="txtNumLinea"  Grid.Row="1" Grid.Column="1" Margin="3" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cbProductos" Grid.Row="1" Grid.Column="2" Margin="3" FontSize="24" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtCantidad"  Grid.Row="1" Grid.Column="3" Margin="3" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="txtPrecio"  Grid.Row="1" Grid.Column="4" Margin="3" FontSize="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnAceptar" Content="SAVE" Grid.Row="1" Grid.Column="5" FontSize="24" Margin="5" Style="{StaticResource BotonAzulRojo}"/>
     </Grid>
 </Window>

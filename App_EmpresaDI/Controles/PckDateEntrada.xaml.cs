@@ -150,7 +150,10 @@ namespace App_EmpresaDI.Controles
 
         public DateTime Fecha
         {
-            get => fecha;
+            get
+            {
+                return fecha;
+            }
             set
             {
                 fecha = value;

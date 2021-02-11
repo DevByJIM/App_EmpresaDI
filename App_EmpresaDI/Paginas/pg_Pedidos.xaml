@@ -106,19 +106,24 @@
 
         <Border x:Name="bor_Lineas" Grid.Row="2" Grid.Column="1" Style="{StaticResource BordeDetalle}">
             <Grid x:Name="grid_Lineas" Margin="10" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.5*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Label x:Name="lbTituloLineas" Content="LINEAS DEL PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"  Foreground="#FC308CCB"/>
-
+                <DataGrid x:Name="dgv_Lineas" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Width="0.3*" Binding="{Binding LIN_CODIGO}"/>
+                        <DataGridTextColumn Header="Nº" Width="0.3*" Binding="{Binding LIN_CODIGO}"/>
+                        <DataGridTextColumn Header="PEDIDO" Width="*" Binding="{Binding LIN_CODIGO}"/>
+                        <DataGridTextColumn Header="PRODUCTO" Width="1.5*" Binding="{Binding LIN_CODIGO}"/>
+                        <DataGridTextColumn Header="CANTIDAD" Width="*" Binding="{Binding LIN_CODIGO}"/>
+                        <DataGridTextColumn Header="PRECIO" Width="*" Binding="{Binding LIN_CODIGO}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </Border>
 
@@ -130,9 +135,9 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
-            <Button x:Name="btnAddLinea" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
-            <Button x:Name="btnUpdateLinea" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
-            <Button x:Name="btnDelLinea" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5"/>
+            <Button x:Name="btnAddLinea" Content="ADD" Grid.Row="1" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotonesLineas"/>
+            <Button x:Name="btnUpdateLinea" Content="UPDATE" Grid.Row="2" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotonesLineas"/>
+            <Button x:Name="btnDelLinea" Content="DELETE" Grid.Row="3" Style="{StaticResource BotonAzulRojo}" Margin="5" Click="TrabajoBotonesLineas"/>
         </Grid>
 
     </Grid>

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Capa_Logica
 {
-    class Tb_Lineas
+    public class Tb_Lineas
     {
         /// <summary>
         /// Clase que nos devuelve un listado con las lineas de la tabla TBLINEAS_PEDIDO.
         /// </summary>
-        public static DataTable listadoLineas()
+        public static DataTable listadoLineas(Int32 CodPedido)
         {
-            return miBBDD.ConsultaSQL("SELECT * FROM TBLINEAS_PEDIDO");
+            return miBBDD.ConsultaSQL("SELECT * FROM TBLINEAS_PEDIDO WHERE " + CodPedido);
 
         }
 
@@ -100,4 +100,4 @@ namespace Capa_Logica
     }
 
 }
-}
+
