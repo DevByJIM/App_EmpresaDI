@@ -32,6 +32,26 @@ namespace Capa_Logica
         }
 
         /// <summary>
+        /// Clase que nos indica  el codigo del producto en la tabla PRODUCTOS.
+        /// </summary>
+        public static Int32 dameCodigoProducto(String producto)
+        {
+            DataTable dt = miBBDD.ConsultaSQL("SELECT PRD_CODIGO FROM TBPRODUCTOS WHERE PRD_NSERIE = '" + producto + "'");
+            if (dt.Rows.Count == 0) return 0;
+            return Convert.ToInt32(dt.Rows[0].ItemArray[0]);
+        }
+
+        /// <summary>
+        /// Clase que nos indica  el precio del producto en la tabla PRODUCTOS.
+        /// </summary>
+        public static Double damePrecioProducto(String producto)
+        {
+            DataTable dt = miBBDD.ConsultaSQL("SELECT PRD_PRECIO FROM TBPRODUCTOS WHERE PRD_NSERIE = '" + producto + "'");
+            if (dt.Rows.Count == 0) return 0;
+            return Convert.ToDouble(dt.Rows[0].ItemArray[0]);
+        }
+
+        /// <summary>
         /// Clase que inserta un nuevo producto en la tabla PRODUCTOS.
         /// </summary>
         public static Boolean addProducto(Producto producto)

@@ -28,10 +28,15 @@
         <Label x:Name="lbCantidad" Content="CANTIDAD" Grid.Row="0" Grid.Column="3" Margin="3"  Style="{StaticResource lbSumar}"/>
         <Label x:Name="lbPrecio" Content="PRECIO"  Grid.Row="0" Grid.Column="4" Margin="3" Style="{StaticResource lbSumar}"/>
 
-        <TextBox x:Name="txtNumLinea"  Grid.Row="1" Grid.Column="1" Margin="3" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="cbProductos" Grid.Row="1" Grid.Column="2" Margin="3" FontSize="24" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtCantidad"  Grid.Row="1" Grid.Column="3" Margin="3" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Label x:Name="txtPrecio"  Grid.Row="1" Grid.Column="4" Margin="3" FontSize="24" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnAceptar" Content="SAVE" Grid.Row="1" Grid.Column="5" FontSize="24" Margin="5" Style="{StaticResource BotonAzulRojo}"/>
+        <TextBox x:Name="txtNumLinea"  Grid.Row="1" Grid.Column="1" Margin="3" FontSize="24" 
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="cbProductos" Grid.Row="1" Grid.Column="2" Margin="3" FontSize="24" SelectionChanged="ModificamosDatos"
+                  VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtCantidad"  Grid.Row="1" Grid.Column="3" Margin="3" FontSize="24" 
+                 HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="ModificamosDatos"/>
+        <Label x:Name="txtPrecio"  Grid.Row="1" Grid.Column="4" Margin="3" FontSize="24" 
+               HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnAceptar" Content="SAVE" Grid.Row="1" Grid.Column="5" FontSize="24" Margin="5" 
+                Style="{StaticResource BotonAzulRojo}" Click="SalvarDatos"/>
     </Grid>
 </Window>

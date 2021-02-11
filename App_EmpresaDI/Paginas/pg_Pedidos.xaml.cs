@@ -14,6 +14,7 @@ namespace App_EmpresaDI.Paginas
     {
         DataTable dt;
         Pedido pedido;
+        LineaPedido linea;
 
         public pg_Pedidos()
         {
@@ -121,8 +122,10 @@ namespace App_EmpresaDI.Paginas
                 switch (((Button)sender).Name)
                 {
                     case "btnAddLinea":
-                        creamosLinea();
-                        new wid_LineaPedido().ShowDialog();
+                        linea = new LineaPedido();
+                        linea.Codpedido = Convert.ToUInt16(txtCodPedido.Texto);
+                        new wid_LineaPedido(linea).ShowDialog();
+
                         //if (Tb_Pedidos.addPedido(pedido))
                         //    new MensajeBox("PEDIDO INTRODUCIDO CON EXITO");
                         break;
@@ -190,7 +193,14 @@ namespace App_EmpresaDI.Paginas
 
         private void creamosLinea()
         {
-            
+            linea = new LineaPedido();
+            DataRowView miRow = (DataRowView)dgv_Lineas.SelectedItem;
+            linea.Id = Convert.ToInt32(miRow["LIN_CODIGO"]);
+            linea.NumLin = Convert.ToInt32(miRow["LIN_NUMLIN"]);
+            linea.Codpedido = Convert.ToInt32(miRow["LIN_CODPEDIDO"]);
+            linea.CodProducto = Convert.ToInt32(miRow["LIN_CODPRODUCTO"]);
+            linea.Cantidad = Convert.ToInt32(miRow["LIN_CANTIDAD"]);
+            linea.Precio = Convert.ToInt32(miRow["LIN_PRECIO"]);
         }
 
 
