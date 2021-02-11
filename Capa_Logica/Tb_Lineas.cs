@@ -14,9 +14,9 @@ namespace Capa_Logica
         /// <summary>
         /// Clase que nos devuelve un listado con las lineas de la tabla TBLINEAS_PEDIDO.
         /// </summary>
-        public static DataTable listadoLineas(Int32 CodPedido)
+        public static DataTable listadoLineas(Int32 id)
         {
-            return miBBDD.ConsultaSQL("SELECT * FROM TBLINEAS_PEDIDO WHERE " + CodPedido);
+            return miBBDD.ConsultaSQL("SELECT * FROM TBLINEAS_PEDIDO WHERE LIN_CODPEDIDO = " + id);
 
         }
 
@@ -39,9 +39,9 @@ namespace Capa_Logica
             try
             {
                 string MISQL = String.Format("INSERT INTO TBLINEAS_PEDIDO ("
-    + " LIN_CODPEDIDO, LIN_CODPRODUCTO, LIN_CANTIDAD, LIN_PRECIO, LIN_NUMLIN)"
-    + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
-    linea.Codpedido, linea.CodProducto, linea.Cantidad, linea.Precio, linea.NumLin);
+                    + " LIN_CODPEDIDO, LIN_CODPRODUCTO, LIN_CANTIDAD, LIN_PRECIO, LIN_NUMLIN)"
+                    + " VALUES ('{0}','{1}','{2}','{3}','{4}')",
+                    linea.Codpedido, linea.CodProducto, linea.Cantidad, linea.Precio, linea.NumLin);
 
                 if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;
 
@@ -58,7 +58,7 @@ namespace Capa_Logica
         /// <summary>
         /// Clase que elimina un cliente de la tabla CLIENTES.
         /// </summary>
-        public static Boolean delCliente(LineaPedido linea)
+        public static Boolean delLinea(LineaPedido linea)
         {
             try
             {
@@ -79,12 +79,12 @@ namespace Capa_Logica
         /// <summary>
         /// Clase que actualiza un cliente de la tabla CLIENTES.
         /// </summary>
-        public static Boolean updateCliente(LineaPedido linea)
+        public static Boolean updateLinea(LineaPedido linea)
         {
             try
             {
                 string MISQL = String.Format("UPDATE TBLINEAS_PEDIDO  SET LIN_CODPEDIDO = '{0}', LIN_CODPRODUCTO = '{1}',"
-                     + " LIN_CANTIDAD = '{2}', LIN_PRECIO = '{3}', LIN_NULIN = '{4}' WHERE LIN_CODIGO = '{5}'",
+                     + " LIN_CANTIDAD = '{2}', LIN_PRECIO = '{3}', LIN_NUMLIN = '{4}' WHERE LIN_CODIGO = '{5}'",
                     linea.Codpedido, linea.CodProducto, linea.Cantidad, linea.Precio, linea.NumLin, linea.Id);
 
                 if (miBBDD.EjecutarOrdenSQL(MISQL)) return true;

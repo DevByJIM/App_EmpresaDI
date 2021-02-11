@@ -19,8 +19,8 @@ namespace App_EmpresaDI.Paginas
         public pg_Pedidos()
         {
             InitializeComponent();
-            //CargarDatos();
-            //cbCliente.SelectFirst();
+            CargarDatos();
+
         }
 
 
@@ -32,14 +32,13 @@ namespace App_EmpresaDI.Paginas
             {
                 cbCliente.AddItems(miRow.ItemArray[1].ToString());
             }
-            cbCliente.SeleccionarItem(0);
-            
+
 
             //cbEstado.AddItems("Selecciona Estado");
             cbEstado.AddItems("En espera");
             cbEstado.AddItems("En proceso");
             cbEstado.AddItems("Listo");
-            cbEstado.SeleccionarItem(0);
+
 
         }
 
@@ -77,7 +76,7 @@ namespace App_EmpresaDI.Paginas
 
             lbId.Content = dt.Rows[filaActual].ItemArray[0].ToString();
             txtCodPedido.Texto = dt.Rows[filaActual].ItemArray[1].ToString();
-            cbCliente.SeleccionarItem(Tb_Clientes.damePoscionCliente(Convert.ToInt32(dt.Rows[filaActual].ItemArray[2])));
+            cbCliente.SeleccionarItem(Tb_Clientes.damePoscionCliente(Convert.ToInt32(dt.Rows[filaActual].ItemArray[2]))+1);
             txtFecha.Fecha = Convert.ToDateTime(dt.Rows[filaActual].ItemArray[3]);
             cbEstado.SeleccionarItem(Convert.ToInt16(dt.Rows[filaActual].ItemArray[4]));
             txtComentario.Texto = dt.Rows[filaActual].ItemArray[5].ToString();
@@ -86,7 +85,7 @@ namespace App_EmpresaDI.Paginas
 
         private void cargarLineasPedido()
         {
-            dgv_Lineas.ItemsSource = Tb_Lineas.listadoLineas(Convert.ToInt32(txtCodPedido.Texto)).DefaultView;
+            dgv_Lineas.ItemsSource = Tb_Lineas.listadoLineas(Convert.ToInt32(lbId.Content.ToString())).DefaultView;
         }
 
         private void TrabajoBotones(object sender, RoutedEventArgs e)
@@ -117,30 +116,37 @@ namespace App_EmpresaDI.Paginas
 
         private void TrabajoBotonesLineas(object sender, RoutedEventArgs e)
         {
-            if (txtCodPedido.Texto!=null)
+            if (txtCodPedido.Texto == null || txtCodPedido.Texto == txtCodPedido.Hint)
             {
+                new MensajeBox("TENEMOS QUE TENER UN PEDIDO SELECCIONADO EN LA PARTE DE PEDIDOS");
+            }
+            else
+            { 
+
                 switch (((Button)sender).Name)
                 {
                     case "btnAddLinea":
                         linea = new LineaPedido();
-                        linea.Codpedido = Convert.ToUInt16(txtCodPedido.Texto);
-                        new wid_LineaPedido(linea).ShowDialog();
+                        linea.Codpedido = Convert.ToUInt16(lbId.Content.ToString());
+                        wid_LineaPedido frm = new wid_LineaPedido(linea);
+                        frm.ShowDialog();
+                        linea = frm.Linea;
 
-                        //if (Tb_Pedidos.addPedido(pedido))
-                        //    new MensajeBox("PEDIDO INTRODUCIDO CON EXITO");
+                        if (Tb_Lineas.addLineaPedido(linea))
+                           new MensajeBox("LINEA INTRODUCIDO CON EXITO");
                         break;
                     case "btnUpdateLinea":
-                        creamosLinea();
-                        //if (Tb_Pedidos.updatePedido(pedido))
-                        //    new MensajeBox("PEDIDO ACTUALIZADO CON EXITO");
+                        if(creamosLinea())
+                            if (Tb_Lineas.updateLinea(linea))
+                                new MensajeBox("LINEA ACTUALIZADO CON EXITO");
                         break;
                     case "btnDelLinea":
-                        creamosLinea();
-                        //if (Tb_Pedidos.delPedido(pedido))
-                        //    new MensajeBox("PEDIDO ELIMINADO CON EXITO");
+                        if (creamosLinea())
+                            if (Tb_Lineas.delLinea(linea))
+                                new MensajeBox("LINEA ELIMINADO CON EXITO");
                         break;
-
                 }
+                cargarLineasPedido();
             }
         }
 
@@ -191,16 +197,23 @@ namespace App_EmpresaDI.Paginas
             cbEstado.Texto = "";
         }
 
-        private void creamosLinea()
+        private Boolean creamosLinea()
         {
             linea = new LineaPedido();
             DataRowView miRow = (DataRowView)dgv_Lineas.SelectedItem;
+
+            if (miRow == null)
+            {
+                new MensajeBox("NO HAY SELECCIONADO EL LA TABLA");
+                return false;
+            }
             linea.Id = Convert.ToInt32(miRow["LIN_CODIGO"]);
             linea.NumLin = Convert.ToInt32(miRow["LIN_NUMLIN"]);
             linea.Codpedido = Convert.ToInt32(miRow["LIN_CODPEDIDO"]);
             linea.CodProducto = Convert.ToInt32(miRow["LIN_CODPRODUCTO"]);
             linea.Cantidad = Convert.ToInt32(miRow["LIN_CANTIDAD"]);
             linea.Precio = Convert.ToInt32(miRow["LIN_PRECIO"]);
+            return true;
         }
 
 
@@ -217,6 +230,8 @@ namespace App_EmpresaDI.Paginas
             txtFecha.FontSize = this.ActualHeight * factorFuente;
             cbEstado.FontSize = this.ActualHeight * factorFuente;
             txtComentario.FontSize = this.ActualHeight * factorFuente;
+
+            dgv_Lineas.FontSize = this.ActualHeight * 0.03;
 
             foreach (Button btn in grid_ControlRegistros.Children)           
                 ((Button)btn).FontSize = this.ActualHeight * 0.03;

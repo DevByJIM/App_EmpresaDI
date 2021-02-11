@@ -11,40 +11,39 @@ namespace Capa_Datos
 {
     public class miBBDD
     {
-        //static SqlConnection Conexion = new SqlConnection("Data Source=SERVERACP;DataBase=Produccion ACP;;Integrated Security=True");
+        
         static MySqlConnection Conexion =
-            new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;password=root;database=EmpresaDI;");
-
+            new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;database=EmpresaDI;");
 
         /// <summary>
         /// Método que ejecuta una Consulta SQL que crea la base de datos si no existe.
         /// </summary>
         public static Boolean CrearBaseDatos()
         {
-            MySqlConnection Conex = new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;password=root;");
+            MySqlConnection Conex = new MySqlConnection("Data source =127.0.0.1;port=3306;username=root;");
             MySqlCommand cmd;
             try
             {
                 if (Conex.State == ConnectionState.Closed)
                     Conex.Open();
-                //cmd = new MySqlCommand(CREATEDB, Conex);
-                //cmd.CommandType = System.Data.CommandType.Text;
-                //cmd.ExecuteNonQuery();
-                //cmd = new MySqlCommand(USEDDBB, Conex);
-                //cmd.CommandType = System.Data.CommandType.Text;
-                //cmd.ExecuteNonQuery();
-                //cmd = new MySqlCommand(CREATEtbCLIENTES, Conex);
-                //cmd.CommandType = System.Data.CommandType.Text;
-                //cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(CREATEDB, Conex);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(USEDDBB, Conex);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(CREATEtbCLIENTES, Conex);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
                 cmd = new MySqlCommand(CREATEtbPEDIDOS, Conex);
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.ExecuteNonQuery();
-                //cmd = new MySqlCommand(CREATEtbPRODUCTO, Conex);
-                //cmd.CommandType = System.Data.CommandType.Text;
-                //cmd.ExecuteNonQuery();
-                //cmd = new MySqlCommand(CREATEtbLINPEDIDOS, Conex);
-                //cmd.CommandType = System.Data.CommandType.Text;
-                //cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(CREATEtbPRODUCTO, Conex);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
+                cmd = new MySqlCommand(CREATEtbLINPEDIDOS, Conex);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
 
                 return true;
 

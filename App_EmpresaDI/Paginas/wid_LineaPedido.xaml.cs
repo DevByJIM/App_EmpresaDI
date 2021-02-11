@@ -22,7 +22,20 @@ namespace App_EmpresaDI.Paginas
     /// </summary>
     public partial class wid_LineaPedido : Window
     {
-        LineaPedido linea; 
+        LineaPedido linea;
+
+        public LineaPedido Linea
+        {
+            get
+            {
+                return linea;
+            }
+
+            set
+            {
+                linea = value;
+            }
+        }
 
         public wid_LineaPedido(LineaPedido linea)
         {
@@ -31,7 +44,7 @@ namespace App_EmpresaDI.Paginas
 
             if (linea != null)
             {
-                this.linea = linea;
+                this.Linea = linea;
                 cargarDatos();
             }else
             {
@@ -46,21 +59,22 @@ namespace App_EmpresaDI.Paginas
                 new MensajeBox("Faltan datos para poder continuar.");
             }
 
-            linea.NumLin = Convert.ToInt32(txtNumLinea.Text);
-            linea.CodProducto = Tb_Productos.dameCodigoProducto(cbProductos.SelectedValue.ToString());
-            linea.Cantidad = Convert.ToInt32(txtCantidad.Text);
-            linea.Precio = Convert.ToInt32(txtPrecio.Content.ToString());
+            Linea.NumLin = Convert.ToInt32(txtNumLinea.Text);
+            Linea.CodProducto = Tb_Productos.dameCodigoProducto(cbProductos.SelectedValue.ToString());
+            Linea.Cantidad = Convert.ToInt32(txtCantidad.Text);
+            Linea.Precio = Convert.ToInt32(txtPrecio.Content.ToString());
+            this.Close();
         }
 
 
         private void cargarDatos()
         {
-            txtNumLinea.Text = linea.NumLin.ToString();
-            txtCantidad.Text = linea.Cantidad.ToString();
-            txtPrecio.Content = linea.Precio.ToString();
-            foreach(ItemCollection ctl in cbProductos.Items)
+            txtNumLinea.Text = Linea.NumLin.ToString();
+            txtCantidad.Text = Linea.Cantidad.ToString();
+            txtPrecio.Content = Linea.Precio.ToString();
+            foreach(String ctl in cbProductos.Items)
             {
-                if(ctl.ToString() == linea.CodProducto.ToString())
+                if(ctl.ToString() == Linea.CodProducto.ToString())
                 {
                     cbProductos.SelectedItem = ctl;
                 }
@@ -79,6 +93,12 @@ namespace App_EmpresaDI.Paginas
 
 
         private void ModificamosDatos(object sender, TextChangedEventArgs e)
+        {
+            if(cbProductos.SelectedItem != null)
+                txtPrecio.Content = Convert.ToInt32(txtCantidad.Text) * Tb_Productos.damePrecioProducto(cbProductos.SelectedItem.ToString());
+        }
+
+        private void cbProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             txtPrecio.Content = Convert.ToInt32(txtCantidad.Text) * Tb_Productos.damePrecioProducto(cbProductos.SelectedItem.ToString());
         }

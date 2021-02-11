@@ -113,15 +113,17 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label x:Name="lbTituloLineas" Content="LINEAS DEL PEDIDO" Style="{StaticResource lbSumar}" VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"  Foreground="#FC308CCB"/>
-                <DataGrid x:Name="dgv_Lineas" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2">
+                <Label x:Name="lbTituloLineas" Content="LINEAS DEL PEDIDO" Style="{StaticResource lbSumar}" 
+                       VerticalAlignment="Top" VerticalContentAlignment="Top" HorizontalContentAlignment="Left"  Foreground="#FC308CCB"/>
+                <DataGrid x:Name="dgv_Lineas" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" 
+                          AlternatingRowBackground="LightGray" AutoGenerateColumns="False" CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Width="0.3*" Binding="{Binding LIN_CODIGO}"/>
-                        <DataGridTextColumn Header="Nº" Width="0.3*" Binding="{Binding LIN_CODIGO}"/>
-                        <DataGridTextColumn Header="PEDIDO" Width="*" Binding="{Binding LIN_CODIGO}"/>
-                        <DataGridTextColumn Header="PRODUCTO" Width="1.5*" Binding="{Binding LIN_CODIGO}"/>
-                        <DataGridTextColumn Header="CANTIDAD" Width="*" Binding="{Binding LIN_CODIGO}"/>
-                        <DataGridTextColumn Header="PRECIO" Width="*" Binding="{Binding LIN_CODIGO}"/>
+                        <DataGridTextColumn Header="Nº" Width="0.3*" Binding="{Binding LIN_NUMLIN}"/>
+                        <DataGridTextColumn Header="PEDIDO" Width="*" Binding="{Binding LIN_CODPEDIDO}"/>
+                        <DataGridTextColumn Header="PRODUCTO" Width="1.5*" Binding="{Binding LIN_CODPRODUCTO}"/>
+                        <DataGridTextColumn Header="CANTIDAD" Width="*" Binding="{Binding LIN_CANTIDAD}"/>
+                        <DataGridTextColumn Header="PRECIO" Width="*" Binding="{Binding LIN_PRECIO}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

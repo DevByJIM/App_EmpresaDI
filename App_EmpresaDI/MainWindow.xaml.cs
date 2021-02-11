@@ -5,6 +5,8 @@ using App_EmpresaDI.Paginas;
 using LibreriasByJIM;
 using LibreriasByJIM.Controles_JIM;
 using Capa_Logica;
+using System.Windows.Threading;
+using System;
 
 namespace App_EmpresaDI
 {
@@ -17,6 +19,16 @@ namespace App_EmpresaDI
         {
             InitializeComponent();
             fr_Paginas.Navigate(new pg_Home());
+            DispatcherTimer time = new DispatcherTimer();
+            time.Interval = TimeSpan.FromMilliseconds(500);
+            time.Tick += Time_Tick;
+            time.Start();
+        }
+
+        private void Time_Tick(object sender, System.EventArgs e)
+        {
+            lbFecha.Content = DateTime.Now.ToLongDateString();
+            lbHora.Content = DateTime.Now.ToLongTimeString();
         }
 
         private void TrabajarBotones(object sender, RoutedEventArgs e)
@@ -68,7 +80,7 @@ namespace App_EmpresaDI
                     myBBDD.CrearBBDD();
                     break;
                 case "Acerca De":
-
+          
                     break;
             }
 

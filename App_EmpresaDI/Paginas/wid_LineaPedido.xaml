@@ -30,7 +30,7 @@
 
         <TextBox x:Name="txtNumLinea"  Grid.Row="1" Grid.Column="1" Margin="3" FontSize="24" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <ComboBox x:Name="cbProductos" Grid.Row="1" Grid.Column="2" Margin="3" FontSize="24" SelectionChanged="ModificamosDatos"
+        <ComboBox x:Name="cbProductos" Grid.Row="1" Grid.Column="2" Margin="3" FontSize="24" SelectionChanged="cbProductos_SelectionChanged"
                   VerticalContentAlignment="Center"/>
         <TextBox x:Name="txtCantidad"  Grid.Row="1" Grid.Column="3" Margin="3" FontSize="24" 
                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="ModificamosDatos"/>

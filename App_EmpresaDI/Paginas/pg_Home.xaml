@@ -24,5 +24,7 @@
         </Grid.ColumnDefinitions>
 
         <Image x:Name="img_Logo" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/Imagenes/logodi.png"/>
+        <TextBox x:Name="lbAyuda" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" TextWrapping="Wrap" IsEnabled="False"
+               Text="Hacer doble clic en un registro de las tablas para que se carguen los datos en los campos. Las líneas se modifican en la misma tabla." FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="{x:Null}"/>
     </Grid>
 </Page>
